@@ -21,8 +21,7 @@ function cargarModuloCliente()
         //dentro del contenedor principal
         document.getElementById('contenedor_principal').innerHTML=datos;
                  
-        import('./cliente.js') 
-                .then(obj => {
+        import('./cliente.js').then(obj => {
                     cm=obj;
                     cm.inicializar();
                     
