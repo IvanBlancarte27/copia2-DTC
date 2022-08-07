@@ -1,0 +1,117 @@
+
+header
+{     
+    background-color: rgba(1, 35, 42,0.754);
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+.fondoLogin
+{
+    background-image: url(../img/fondo_login.gif);
+    background-size: cover;
+    background-repeat: repeat-y;
+}
+
+.title
+{
+    color:white;
+    font-weight: bold;
+    -webkit-text-stroke: 0.9px black;
+    text-shadow: 0 3px 5px black;    
+}
+
+.ingresar
+{
+    color: white;
+    background-color: rgb(4, 39, 46);
+}
+.ingresar:hover
+{
+    color: #c3dbdf;
+    box-shadow: 5px 5px 5px lightblue;
+}
+
+.fondoCardLogin
+{
+    background-color: black;
+}
+
+.fondoCardBodyLogin
+{
+    background-color: #c3dbdf;
+}
+
+.fondoMenu
+{
+    background-image: url(../img/fondo_menu.gif);
+    background-size: cover;
+    background-repeat: repeat-y;
+}
+
+.navM
+{    
+    height: 50px;
+    display: flex;
+    justify-content: space-between;           
+}
+.optica_menu_item,.optica_menu_item:link,.optica_menu_item:visited,.optica_menu_item:active
+{
+    color: #c1dee6;
+}
+.optica_menu_item:hover
+{
+    color: white;
+    background-color: rgba( 193, 222, 230,0.350 );
+    border-radius: 10px;
+}
+
+.producto_item_menu
+{
+    background-color: rgba( 193, 222, 230,0.9 );
+}    
+
+.producto_item,.producto_item:link,.producto_item:visited,.producto_item:active
+{
+    color: #c1dee6;
+}
+.producto_item:hover
+{
+    background-color: rgba( 193, 222, 230,0.350 );
+    border-radius: 10px;
+    color: white;
+}
+
+.migas:link,.migas:visited,.migas:active
+{
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.migas:hover
+{
+    color: white;
+    text-decoration: underline;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.hamburguesa
+{
+    color: #c1dee6;
+    background: none;
+    border: none;
+    font-size: 30px;
+    line-height: 60px;
+    display: none;
+}
+
+.card-hform
+{
+    color: white;
+    background-color: #04272E;    
+}
+
