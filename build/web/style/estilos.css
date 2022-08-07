@@ -1,12 +1,4 @@
 
-header
-{     
-    background-color: rgba(1, 35, 42,0.754);
-    width: 100%;
-    top: 0;
-    left: 0;
-}
-
 .fondoLogin
 {
     background-image: url(../img/fondo_login.gif);
@@ -54,7 +46,11 @@ header
 {    
     height: 50px;
     display: flex;
-    justify-content: space-between;           
+    justify-content: space-between; 
+    background-color: rgba(1, 35, 42,0.754);
+    width: 100%;
+    top: 0;
+    left: 0;
 }
 .optica_menu_item,.optica_menu_item:link,.optica_menu_item:visited,.optica_menu_item:active
 {
