@@ -11,7 +11,7 @@
     color:white;
     font-weight: bold;
     -webkit-text-stroke: 0.9px black;
-    text-shadow: 0 3px 5px black;    
+    text-shadow: 0 3px 5px black;
 }
 
 .ingresar
@@ -43,10 +43,10 @@
 }
 
 .navM
-{    
+{
     height: 50px;
     display: flex;
-    justify-content: space-between; 
+    justify-content: space-between;
     background-color: rgba(1, 35, 42,0.754);
     width: 100%;
     top: 0;
@@ -66,7 +66,7 @@
 .producto_item_menu
 {
     background-color: rgba( 193, 222, 230,0.9 );
-}    
+}
 
 .producto_item,.producto_item:link,.producto_item:visited,.producto_item:active
 {
@@ -95,19 +95,27 @@
     font-size: 12px;
 }
 
-.hamburguesa
+.hamburguesa-btn
 {
     color: #c1dee6;
-    background: none;
+    background-color: rgba(4, 39, 46,0.5);
     border: none;
     font-size: 30px;
-    line-height: 60px;
-    display: none;
+    width: 50px;
+    height: content-box;
+    text-align: center;
+    justify-items: center;
+    justify-content: center;
 }
 
+hamburguesa
+{
+    width: 30px;
+    height: content-box;
+}
 .card-hform
 {
     color: white;
-    background-color: #04272E;    
+    background-color: #04272E;
 }
 
