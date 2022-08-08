@@ -1,0 +1,173 @@
+
+<div class="row">
+    <div class="col">
+        <div class="card-header" style="padding-top: 0px; padding-bottom: 0px;">
+            <span>
+                <img alt="" style="height: 24px;" src="../img/svg/package.svg"/>
+                <span class="h5">M&oacute;dulo de Gesti&oacute;n de Empleados</span>
+                <span style="margin-left: 16px;">
+                    <button class="btn btn-sm btn-outline-success my-2" 
+                            onclick="cm.setDetalleVisible(true);">
+                        <i class="fas fa-plus"></i>&nbsp;&nbsp;Agregar Nuevo
+                    </button>
+                </span>
+            </span>
+            <span class="float-end"><a class="optica_closable_action" href="#">
+                    <i class="fas fa-times"></i>
+                </a>
+            </span>
+        </div>
+    </div>
+</div>
+<div class="row mt-2">
+    <div id="divDetalle" class="col-12">
+        <div class="card">
+            <div class="card-header">
+                Detalles del Empleado
+                <span class="float-end">
+                    <a href="#" 
+                       onclick="cm.setDetalleVisible(false);">
+                        <i class="fas fa-times"></i>
+                    </a>
+                </span>
+            </div>
+            <div class="card-body">
+                <div class="form">
+                    <div class="row">
+                        <div class="row" style="padding-top: 8px; padding-bottom: 16px;">
+                            <div class="col-6">                            
+                                <div class="form-floating bg-gradient" style="padding-left: 6px; background-color: #34383c; border-radius: 5px;">
+                                    <input id="txtNumeroUnicoEmpleado" type="text" class="form-control" readonly/>
+                                    <label for="txtNumeroUnicoEmpleado">N&uacute;mero &Uacute;nico:</label>
+                                </div>
+                            </div>
+                            <div class="col-6">                            
+                                <div class="form-floating bg-gradient" style="padding-left: 6px; background-color: #34383c; border-radius: 5px;">
+
+                                    <input id="txtIdEmpleado" type="text" class="form-control" readonly/>
+                                    <label for="txtIdEmpleado"> </label>
+                                </div>
+                            </div>
+                        </div>                       
+                    </div> 
+                    <div class="row" style="padding-top: 8px; padding-bottom: 16px;">
+                        <div class="col-4">                            
+                            <div class="form-floating bg-gradient" style="padding-left: 6px; background-color: #04272E; border-radius: 5px;">
+                                <input id="txtNombreE" type="text" class="form-control" placeholder="Nombre del Empleado"/>
+                                <label for="txtNombreE">Nombre:</label>
+                            </div>                        
+                        </div>
+                        <div class="col-4">                            
+                            <div class="form-floating bg-gradient" style="padding-left: 6px; background-color: #04272E; border-radius: 5px;">
+                                <input id="txtApellidoPaternoE" type="text" class="form-control" placeholder="Apellido Paterno del Empleado"/>
+                                <label for="txtApellidoPaternoE">Apellido Paterno:</label>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-floating bg-gradient" style="padding-left: 6px; background-color: #04272E; border-radius: 5px;">
+                                <input id="txtApellidoMaternoE" type="text" class="form-control" placeholder="Apellido Materno del Empleado"/>
+                                <label for="txtApellidoMaternoE">Apellido Materno:</label>
+                            </div>
+                        </div>
+                    </div> 
+                    <div class="row" style="padding-top: 8px; padding-bottom: 16px;"> 
+                        <div class="col-4">                            
+                            <div class="form-floating bg-gradient" style="padding-left: 6px; background-color: #04272E; border-radius: 5px;">
+                                <input id="txtCorreoElectronico" type="email" class="form-control" placeholder="Correo Electronico"/>
+                                <label for="txtCorreoElectronico">Correo Electronico:</label>
+                            </div>
+                        </div>
+                        <div class="col-4">                                
+                            <label>Estatus: </label><br>
+                            <input id="rbtnActivo" name="rbtnEstatus" type="radio" class="form-check-input"/>
+                            <label for="rbtnActivo">Activo</label>
+                            &nbsp;&nbsp;&nbsp;
+                            <input id="rbtnInactivo" name="rbtnEstatus" type="radio" class="form-check-input"/>
+                            <label for="rbtnInactivo">Inactivo</label>
+                        </div> 
+                        <div class="col-4"> 
+                            <label>G&eacute;nero: </label><br>
+                            <input id="rbtnHombre" name="rbtnGenero" type="radio" class="form-check-input"/>
+                            <label for="rbtnHombre" class="form-check-label">Hombre</label>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <input id="rbtnMujer" name="rbtnGenero" type="radio" class="form-check-input"/>
+                            <label for="rbtnMujer" class="form-check-label">Mujer</label>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <input id="rbtnOtro" name="rbtnGenero" type="radio" class="form-check-input"/> 
+                            <label for="rbtnOtro" class="form-check-label">Otro</label>                                
+                        </div>
+                    </div> 
+                    <div class="row" style="padding-top: 8px; padding-bottom: 16px;">   
+                        <div class="col-4">                            
+                            <div class="form-floating bg-gradient" style="padding-left: 6px; background-color: #04272E; border-radius: 5px;">
+                                <input id="txtRFC" type="text" class="form-control" placeholder="Telefono de Casa"/>
+                                <label for="txtRFC">RFC:</label>
+                            </div>
+                        </div>                       
+                        <div class="col-4">                            
+                            <div class="form-floating bg-gradient" style="padding-left: 6px; background-color: #04272E; border-radius: 5px;">
+                                <input id="txtTelefonoCasa" type="text" class="form-control" placeholder="Telefono de Casa"/>
+                                <label for="txtTelefonoCasa">Tel&eacute;fono de Casa:</label>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-floating bg-gradient" style="padding-left: 6px; background-color: #04272E; border-radius: 5px;">
+                                <input id="txtTelefonoMovil" type="text" class="form-control" placeholder="Telefono Movil"/>
+                                <label for="txtTelefonoMovil">Tel&eacute;fono M&oacute;vil:</label>
+                            </div>
+                        </div>
+                    </div> 
+                    <div class="row" style="padding-top: 8px; padding-bottom: 16px;">                        
+                        <div class="col-6">                            
+                            <div class="form-floating bg-gradient" style="padding-left: 6px; background-color: #04272E; border-radius: 5px;">
+                                <input id="txtUsuario" type="text" class="form-control" placeholder="Usuario"/>
+                                <label for="txtUsuario">Usuario:</label>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-floating bg-gradient" style="padding-left: 6px; background-color: #04272E; border-radius: 5px;">
+                                <input id="pwdContraseña" type="password" class="form-control" placeholder="Contraseña"/>
+                                <label for="pwdContraseña">Contraseña:</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="my-3 text-center">
+                        <button class="btn btn-primary" onclick="mandarConfirmacionGuardar()"><i class="fas fa-save"></i>&nbsp;&nbsp;Guardar</button>
+                        <button class="btn btn-danger mx-3"><i class="fas fa-trash"></i>&nbsp;Eliminar</button>
+                        <button class="btn btn-success" onclick="cm.limpiarFormularioDetalle();"><i class="fas fa-file"></i>&nbsp;&nbsp;Nuevo</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>        
+</div>
+<div id="divCatalogo" class="col">
+    <div class="card row mt-2">
+        <div class="card-header card-hform">
+            Listado de Empleados
+        </div>
+        <div class="card-body">
+            <table id="tblEmpleados" class="table table-hover table-responsive">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Apellido Paterno</th>
+                        <th>Apellido Materno</th>
+                        <th>G&eacute;nero</th>
+                        <th>Estatus</th>
+                        <th>N&uacute;mero &Uacute;nico</th>
+                        <th>RFC</th>
+                        <th>Tel&eacute;fono Casa</th>
+                        <th>Tel&eacute;fono M&oacute;vil</th>
+                        <th>Correo Electronico</th>
+                        <th>Usuario</th>
+                        <th>Contraseña</th>
+                    </tr>
+                </thead>
+                <tbody id="tbodyEmpleado"></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</div>
+

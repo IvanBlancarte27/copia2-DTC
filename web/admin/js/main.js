@@ -3,7 +3,27 @@ let cm=null;
 
 function cargarModuloEmpleado()
 {
-    
+    //AJAX: Asynchronous
+    fetch('empleado/empleado.html')
+    .then(respuesta => {
+        //Devolvemos el contenido
+        //de la respuesta en formato
+        //texto:
+        return respuesta.text();
+                       })
+    .then(datos => {
+        
+        //Insertamos el codigo HTML
+        //dentro del contenedor principal
+        document.getElementById('contenedor_principal').innerHTML=datos;
+                 
+        import('./empleado.js') 
+                .then(obj => {
+                    cm=obj;
+                    cm.inicializar();
+                    
+                });
+             });  
 }
 function cargarModuloCliente()
 {
