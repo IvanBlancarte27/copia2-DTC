@@ -43,7 +43,7 @@ let empleados = [
     }
 ];
 
-//iniciarlizar
+//inicializar
 export function inicializar()
 {
     setDetalleVisible(false);
@@ -104,7 +104,7 @@ export function setDetalleVisible(valor)
     }
 }
 
-export function mostrarDetalleEmpleado(idEmpledo)
+export function mostrarDetalleEmpleado(idEmpleado)
 {
     let i = -1;
 
