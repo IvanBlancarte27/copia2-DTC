@@ -34,29 +34,36 @@
             <div class="card-body">
                 <div class="form">
                     <div class="row">
-                        <div class="row" style="padding-top: 8px; padding-bottom: 16px;">
-                            <div class="col-5">                            
-                                <div class="form-floating bg-gradient" style="padding-left: 6px; background-color: #34383c; border-radius: 5px;">
-                                    <input id="txtNumeroUnicoEmpleado" type="text" class="form-control" readonly/>
-                                    <label for="txtNumeroUnicoEmpleado">N&uacute;mero &Uacute;nico:</label>
+                        <div class="col">
+                            <div class="row">
+                                <div class="col">
+                                    <label for="txtCodigo" class="form-label">C&oacute;digo del Producto</label>
+                                    <div class="row">
+                                        <div class="col-5">                            
+                                            <div class="form-floating bg-gradient" style="padding-left: 6px; background-color: #34383c; border-radius: 5px;">
+                                                <input id="txtNumeroUnicoEmpleado" type="text" class="form-control" readonly/>
+                                                <label for="txtNumeroUnicoEmpleado">N&uacute;mero &Uacute;nico:</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-5">                            
+                                            <div class="form-floating bg-gradient" style="padding-left: 6px; background-color: #34383c; border-radius: 5px;">
+                                                <input id="txtIdEmpleado" type="text" class="form-control" readonly/>
+                                                <label for="txtIdEmpleado"> </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-2">                                
+                                            <label>Estatus: </label><br>
+                                            <input id="rbtnActivo" name="rbtnEstatus" type="radio" class="form-check-input"/>
+                                            <label for="rbtnActivo">Activo</label>
+                                            &nbsp;&nbsp;&nbsp;
+                                            <input id="rbtnInactivo" name="rbtnEstatus" type="radio" class="form-check-input"/>
+                                            <label for="rbtnInactivo">Inactivo</label>
+                                        </div> 
+                                    </div>  
                                 </div>
-                            </div>
-                            <div class="col-5">                            
-                                <div class="form-floating bg-gradient" style="padding-left: 6px; background-color: #34383c; border-radius: 5px;">
-                                    <input id="txtIdEmpleado" type="text" class="form-control" readonly/>
-                                    <label for="txtIdEmpleado"> </label>
-                                </div>
-                            </div>
-                            <div class="col-2">                                
-                                <label>Estatus: </label><br>
-                                <input id="rbtnActivo" name="rbtnEstatus" type="radio" class="form-check-input"/>
-                                <label for="rbtnActivo">Activo</label>
-                                &nbsp;&nbsp;&nbsp;
-                                <input id="rbtnInactivo" name="rbtnEstatus" type="radio" class="form-check-input"/>
-                                <label for="rbtnInactivo">Inactivo</label>
-                            </div> 
+                            </div>                            
                         </div>                       
-                    </div> 
+                    </div>
                     <div class="row" style="padding-top: 8px; padding-bottom: 16px;">
                         <div class="col-3"> 
                             <label>G&eacute;nero: </label><br>
@@ -131,19 +138,19 @@
                     <div class="my-3 text-center">
                         <button class="btn btn-primary" onclick="cm.save();"><i class="fas fa-save"></i>&nbsp;&nbsp;Guardar</button>
                         <button class="btn btn-danger mx-3" onclick="cm.remove();"><i class="fas fa-trash"></i>&nbsp;Eliminar</button>
-                        <button class="btn btn-success" onclick="cm.limpiarFormularioDetalle();"><i class="fas fa-file"></i>&nbsp;&nbsp;Nuevo</button>
+                        <button class="btn btn-success" onclick="cm.limpiarFormularioDetalle(); cm.limpiar_y_mostrarDetalle();"><i class="fas fa-file"></i>&nbsp;&nbsp;Nuevo</button>
                     </div>
                 </div>
             </div>
         </div>
-    </div>   
-    <div id="divCatalogo" class="col">
-        <div class="card row mt-2">
-            <div class="card-header card-hform">
+    </div>
+    <div id="divCatalogo" class="col-12">
+        <div class="card">
+            <div class="card-header">
                 Listado de Empleados
             </div>
             <div class="card-body">
-                <table id="tblEmpleados" class="table table-hover table-responsive">
+                <table id="tblEmpleados" class="table table-hover">
                     <thead>
                         <tr>
                             <th>Nombre</th>
@@ -160,11 +167,12 @@
                             <th>Contraseña</th>
                         </tr>
                     </thead>
-                    <tbody id="tbodyEmpleado"></tbody>
+                    <tbody id="tbodyEmpleados"></tbody>
                 </table>
             </div>
         </div>
     </div>
 </div>
+
 
 
