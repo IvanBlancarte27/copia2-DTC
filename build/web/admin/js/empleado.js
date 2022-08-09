@@ -185,7 +185,7 @@ export function save()
         correo_electronico: document.getElementById("txtCorreoElectronico").value,
         usuario: document.getElementById("txtUsuario").value,
         contraseña: document.getElementById("txtContraseña").value
-    }
+    };
     //Revisamos si hay algun valor en la caja de texto del id del empleado:
     //El trin quita espacios a la derecha e izquierda
     if (document.getElementById("txtNumeroUnicoEmpleado").value.trim() === '')
@@ -243,7 +243,7 @@ export function save()
 export function remove()
 {
     let pos = -1;
-    if (document.getElementById("txtIdEmpleado").value.trin() !== "")
+    if (document.getElementById("txtIdEmpleado").value.trim() !== "")
     {
         //Buscamos la posición del empleado:
         pos = buscarPosicionPorId(parseInt(document.getElementById("txtIdEmpleado").value));

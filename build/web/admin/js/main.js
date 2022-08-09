@@ -17,14 +17,14 @@ function cargarModuloEmpleado()
         //dentro del contenedor principal
         document.getElementById('contenedor_principal').innerHTML=datos;
                  
-        import('./empleado.js') 
-                .then(obj => {
+        import('./empleado.js').then(obj => {
                     cm=obj;
                     cm.inicializar();
                     
                 });
              });  
 }
+
 function cargarModuloCliente()
 {
      //AJAX: Asynchronous
@@ -48,6 +48,7 @@ function cargarModuloCliente()
                 });
              });   
 }
+
 function cargarModuloAccesorio()
 {
     //AJAX: Asynchronous
@@ -73,3 +74,27 @@ function cargarModuloAccesorio()
              });
 }
 
+function cargarModuloSolucion()
+{
+    //AJAX: Asynchronous
+    fetch('producto/solucion/solucion.html')
+    .then(respuesta => {
+        //Devolvemos el contenido
+        //de la respuesta en formato
+        //texto:
+        return respuesta.text();
+                       })
+    .then(datos => {
+        
+        //Insertamos el codigo HTML
+        //dentro del contenedor principal
+        document.getElementById('contenedor_principal').innerHTML=datos;
+                 
+        import('./solucion.js') 
+                .then(obj => {
+                    cm=obj;
+                    cm.inicializar();
+                    
+                });
+             });
+}
