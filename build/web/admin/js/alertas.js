@@ -2,7 +2,13 @@
 
 function mandarConfirmacionEliminar()
 {
-    alert("Se Elimino Correctamente");
+    Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Eliminado correctamente',
+        showConfirmButton: false,
+        timer: 1500
+    });
 }
 
 function mandarConfirmacionGuardar()
