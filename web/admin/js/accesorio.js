@@ -142,4 +142,24 @@ function buscarPosicionPorId(id)
     return -1;
 }
 
+export function save()
+{
+    
+    let pos = -1;
+    
+    let accesorio = {
+                        idProducto  : 0,
+                        idAccesorio : 0,
+                        numeroUnico : 0,
+                        nombre      : document.getElementById("txtNombre").value,
+                        marca       : document.getElementById("txtMarca").value,
+                        precioCompra: parseFloat(document.getElementById("txtPrecioCompra").value),
+                        precioVenta : parseFloat(document.getElementById("txtPrecioVenta").value),
+                        existencias : parseFloat(document.getElementById("txtExistencias").value)
+                    };
+}
 
+export function remove()
+{
+    
+}
