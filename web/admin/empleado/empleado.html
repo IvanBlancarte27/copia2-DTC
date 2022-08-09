@@ -35,57 +35,31 @@
                 <div class="form">
                     <div class="row">
                         <div class="row" style="padding-top: 8px; padding-bottom: 16px;">
-                            <div class="col-6">                            
+                            <div class="col-5">                            
                                 <div class="form-floating bg-gradient" style="padding-left: 6px; background-color: #34383c; border-radius: 5px;">
                                     <input id="txtNumeroUnicoEmpleado" type="text" class="form-control" readonly/>
                                     <label for="txtNumeroUnicoEmpleado">N&uacute;mero &Uacute;nico:</label>
                                 </div>
                             </div>
-                            <div class="col-6">                            
+                            <div class="col-5">                            
                                 <div class="form-floating bg-gradient" style="padding-left: 6px; background-color: #34383c; border-radius: 5px;">
 
                                     <input id="txtIdEmpleado" type="text" class="form-control" readonly/>
                                     <label for="txtIdEmpleado"> </label>
                                 </div>
                             </div>
+                            <div class="col-2">                                
+                                <label>Estatus: </label><br>
+                                <input id="rbtnActivo" name="rbtnEstatus" type="radio" class="form-check-input"/>
+                                <label for="rbtnActivo">Activo</label>
+                                &nbsp;&nbsp;&nbsp;
+                                <input id="rbtnInactivo" name="rbtnEstatus" type="radio" class="form-check-input"/>
+                                <label for="rbtnInactivo">Inactivo</label>
+                            </div> 
                         </div>                       
                     </div> 
                     <div class="row" style="padding-top: 8px; padding-bottom: 16px;">
-                        <div class="col-4">                            
-                            <div class="form-floating bg-gradient" style="padding-left: 6px; background-color: #04272E; border-radius: 5px;">
-                                <input id="txtNombreE" type="text" class="form-control" placeholder="Nombre del Empleado"/>
-                                <label for="txtNombreE">Nombre:</label>
-                            </div>                        
-                        </div>
-                        <div class="col-4">                            
-                            <div class="form-floating bg-gradient" style="padding-left: 6px; background-color: #04272E; border-radius: 5px;">
-                                <input id="txtApellidoPaternoE" type="text" class="form-control" placeholder="Apellido Paterno del Empleado"/>
-                                <label for="txtApellidoPaternoE">Apellido Paterno:</label>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="form-floating bg-gradient" style="padding-left: 6px; background-color: #04272E; border-radius: 5px;">
-                                <input id="txtApellidoMaternoE" type="text" class="form-control" placeholder="Apellido Materno del Empleado"/>
-                                <label for="txtApellidoMaternoE">Apellido Materno:</label>
-                            </div>
-                        </div>
-                    </div> 
-                    <div class="row" style="padding-top: 8px; padding-bottom: 16px;"> 
-                        <div class="col-4">                            
-                            <div class="form-floating bg-gradient" style="padding-left: 6px; background-color: #04272E; border-radius: 5px;">
-                                <input id="txtCorreoElectronico" type="email" class="form-control" placeholder="Correo Electronico"/>
-                                <label for="txtCorreoElectronico">Correo Electronico:</label>
-                            </div>
-                        </div>
-                        <div class="col-4">                                
-                            <label>Estatus: </label><br>
-                            <input id="rbtnActivo" name="rbtnEstatus" type="radio" class="form-check-input"/>
-                            <label for="rbtnActivo">Activo</label>
-                            &nbsp;&nbsp;&nbsp;
-                            <input id="rbtnInactivo" name="rbtnEstatus" type="radio" class="form-check-input"/>
-                            <label for="rbtnInactivo">Inactivo</label>
-                        </div> 
-                        <div class="col-4"> 
+                        <div class="col-3"> 
                             <label>G&eacute;nero: </label><br>
                             <input id="rbtnHombre" name="rbtnGenero" type="radio" class="form-check-input"/>
                             <label for="rbtnHombre" class="form-check-label">Hombre</label>
@@ -96,28 +70,52 @@
                             <input id="rbtnOtro" name="rbtnGenero" type="radio" class="form-check-input"/> 
                             <label for="rbtnOtro" class="form-check-label">Otro</label>                                
                         </div>
-                    </div> 
-                    <div class="row" style="padding-top: 8px; padding-bottom: 16px;">   
-                        <div class="col-4">                            
+                        <div class="col-3">                            
                             <div class="form-floating bg-gradient" style="padding-left: 6px; background-color: #04272E; border-radius: 5px;">
-                                <input id="txtRFC" type="text" class="form-control" placeholder="Telefono de Casa"/>
-                                <label for="txtRFC">RFC:</label>
+                                <input id="txtNombreE" type="text" class="form-control" placeholder="Nombre del Empleado"/>
+                                <label for="txtNombreE">Nombre:</label>
+                            </div>                        
+                        </div>
+                        <div class="col-3">                            
+                            <div class="form-floating bg-gradient" style="padding-left: 6px; background-color: #04272E; border-radius: 5px;">
+                                <input id="txtApellidoPaternoE" type="text" class="form-control" placeholder="Apellido Paterno del Empleado"/>
+                                <label for="txtApellidoPaternoE">Apellido Paterno:</label>
                             </div>
-                        </div>                       
-                        <div class="col-4">                            
+                        </div>
+                        <div class="col-3">
+                            <div class="form-floating bg-gradient" style="padding-left: 6px; background-color: #04272E; border-radius: 5px;">
+                                <input id="txtApellidoMaternoE" type="text" class="form-control" placeholder="Apellido Materno del Empleado"/>
+                                <label for="txtApellidoMaternoE">Apellido Materno:</label>
+                            </div>
+                        </div>                         
+                    </div> 
+                    <div class="row" style="padding-top: 8px; padding-bottom: 16px;"> 
+                        <div class="col-3">                            
                             <div class="form-floating bg-gradient" style="padding-left: 6px; background-color: #04272E; border-radius: 5px;">
                                 <input id="txtTelefonoCasa" type="text" class="form-control" placeholder="Telefono de Casa"/>
                                 <label for="txtTelefonoCasa">Tel&eacute;fono de Casa:</label>
                             </div>
                         </div>
-                        <div class="col-4">
+                        <div class="col-3">
                             <div class="form-floating bg-gradient" style="padding-left: 6px; background-color: #04272E; border-radius: 5px;">
                                 <input id="txtTelefonoMovil" type="text" class="form-control" placeholder="Telefono Movil"/>
                                 <label for="txtTelefonoMovil">Tel&eacute;fono M&oacute;vil:</label>
                             </div>
+                        </div> 
+                        <div class="col-3">                            
+                            <div class="form-floating bg-gradient" style="padding-left: 6px; background-color: #04272E; border-radius: 5px;">
+                                <input id="txtCorreoElectronico" type="email" class="form-control" placeholder="Correo Electronico"/>
+                                <label for="txtCorreoElectronico">Correo Electronico:</label>
+                            </div>
                         </div>
+                        <div class="col-3">                            
+                            <div class="form-floating bg-gradient" style="padding-left: 6px; background-color: #04272E; border-radius: 5px;">
+                                <input id="txtRFC" type="text" class="form-control" placeholder="Telefono de Casa"/>
+                                <label for="txtRFC">RFC:</label>
+                            </div>
+                        </div> 
                     </div> 
-                    <div class="row" style="padding-top: 8px; padding-bottom: 16px;">                        
+                    <div class="row" style="padding-top: 8px; padding-bottom: 16px;">                         
                         <div class="col-6">                            
                             <div class="form-floating bg-gradient" style="padding-left: 6px; background-color: #04272E; border-radius: 5px;">
                                 <input id="txtUsuario" type="text" class="form-control" placeholder="Usuario"/>
@@ -139,34 +137,35 @@
                 </div>
             </div>
         </div>
-    </div>        
-</div>
-<div id="divCatalogo" class="col">
-    <div class="card row mt-2">
-        <div class="card-header card-hform">
-            Listado de Empleados
-        </div>
-        <div class="card-body">
-            <table id="tblEmpleados" class="table table-hover table-responsive">
-                <thead>
-                    <tr>
-                        <th>Nombre</th>
-                        <th>Apellido Paterno</th>
-                        <th>Apellido Materno</th>
-                        <th>G&eacute;nero</th>
-                        <th>Estatus</th>
-                        <th>N&uacute;mero &Uacute;nico</th>
-                        <th>RFC</th>
-                        <th>Tel&eacute;fono Casa</th>
-                        <th>Tel&eacute;fono M&oacute;vil</th>
-                        <th>Correo Electronico</th>
-                        <th>Usuario</th>
-                        <th>Contraseña</th>
-                    </tr>
-                </thead>
-                <tbody id="tbodyEmpleado"></tbody>
-            </table>
+    </div>   
+    <div id="divCatalogo" class="col">
+        <div class="card row mt-2">
+            <div class="card-header card-hform">
+                Listado de Empleados
+            </div>
+            <div class="card-body">
+                <table id="tblEmpleados" class="table table-hover table-responsive">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Apellido Paterno</th>
+                            <th>Apellido Materno</th>
+                            <th>G&eacute;nero</th>
+                            <th>Estatus</th>
+                            <th>N&uacute;mero &Uacute;nico</th>
+                            <th>RFC</th>
+                            <th>Tel&eacute;fono Casa</th>
+                            <th>Tel&eacute;fono M&oacute;vil</th>
+                            <th>Correo Electronico</th>
+                            <th>Usuario</th>
+                            <th>Contraseña</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbodyEmpleado"></tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>
+
 
