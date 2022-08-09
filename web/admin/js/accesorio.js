@@ -218,3 +218,9 @@ export function remove()
         }
     }
 }
+
+export function limpiar_y_mostrarDetalle()
+{
+    limpiarFormularioDetalle();
+    setDetalleVisible(true);
+}

@@ -1,3 +1,5 @@
+/* global Swal */
+
 function mandarConfirmacionEliminar()
 {
     alert("Se Elimino Correctamente");
