@@ -30,3 +30,8 @@ function cancelarPresupuesto()
     let presupuesto = document.getElementById('txtClaveUnicaPresupuesto').value;
     alert("El Presupuesto " + presupuesto + " se ha Cancelado.");
 }
+
+function mandarError()
+{
+    
+}

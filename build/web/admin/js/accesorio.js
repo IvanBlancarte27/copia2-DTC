@@ -157,6 +157,29 @@ export function save()
                         precioVenta : parseFloat(document.getElementById("txtPrecioVenta").value),
                         existencias : parseFloat(document.getElementById("txtExistencias").value)
                     };
+                   
+    if (document.getElementById("txtCodigoAccesorio").value.trim() === '') 
+    {
+        accesorio.idProducto = Date.now();
+        accesorio.idAccesorio = Date.now() + 1;
+        accesorio.numeroUnico = '' + Date.now() + 2;
+        
+        accesorios[accesorios.length]= accesorio;
+        
+        document.getElementById("txtCodigoProducto").value=accesorio.idProducto;
+        document.getElementById("txtCodigoAccesorio").value=accesorio.idAccesorio;
+        document.getElementById("txtNumeroUnico").value=accesorio.numeroUnico;
+        
+        fillTable();
+    }
+    else
+    {
+        accesorio.idProducto = parseInt(document.getElementById("txtCodigoProducto").value);
+        accesorio.idAccesorio = parseInt(document.getElementById("txtCodigoAccesorio").value);
+        accesorio.numeroUnico = document.getElementById("txtNumeroUnico").value;
+        
+        pos = buscarPosicionPorId(accesorio.idAccesorio);
+    }
 }
 
 export function remove()
