@@ -170,6 +170,8 @@ export function save()
         document.getElementById("txtCodigoAccesorio").value=accesorio.idAccesorio;
         document.getElementById("txtNumeroUnico").value=accesorio.numeroUnico;
         
+        mandarConfirmacionGuardar();
+        
         fillTable();
     }
     else
@@ -179,10 +181,40 @@ export function save()
         accesorio.numeroUnico = document.getElementById("txtNumeroUnico").value;
         
         pos = buscarPosicionPorId(accesorio.idAccesorio);
+        
+        
+        if (pos >= 0) 
+        {
+            accesorios[pos] = accesorio;
+            
+            mandarConfirmacionActualizar();
+            
+            fillTable();
+        }
+        else
+        {
+            mandarError();
+        }
     }
 }
 
 export function remove()
 {
-    
+    let pos = -1;
+    if (document.getElementById("txtCodigoAccesorio").value.trim() !== '') {
+        
+        pos = buscarPosicionPorId(parseInt(document.getElementById("txtCodigoAccesorio").value));
+        
+        if (pos >= 0){
+            accesorios.splice(pos, 1);
+            
+            mandarConfirmacionEliminar();
+            
+            fillTable();
+            
+            limpiarFormularioDetalle();
+            
+            setDetalleVisible(false);
+        }
+    }
 }

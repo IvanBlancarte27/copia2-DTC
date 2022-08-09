@@ -14,6 +14,17 @@ function mandarConfirmacionGuardar()
     });
 }
 
+function mandarConfirmacionActualizar()
+{
+    Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Actualizado Correctamente',
+        showConfirmButton: false,
+        timer: 1500
+    });
+}
+
 function mandarNotificación()
 {
     alert("Se Envio la Notificación");
@@ -33,5 +44,11 @@ function cancelarPresupuesto()
 
 function mandarError()
 {
-    
+    Swal.fire({
+        position: 'top-end',
+        icon: 'error',
+        title: 'Error',
+        showConfirmButton: false,
+        timer: 1500
+    });
 }
