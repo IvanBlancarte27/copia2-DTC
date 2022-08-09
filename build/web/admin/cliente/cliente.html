@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col">
-        <div class="card-header" style="padding-top: 0px; padding-bottom: 0px;">
+        <div class="card-header modulo-title text-light">
             <span>
                 <img alt="" style="height: 24px;" src="../img/svg/package.svg"/>
                 <span class="h5">M&oacute;dulo de Gesti&oacute;n Clientes</span>
@@ -11,7 +11,7 @@
                     </button>
                 </span>
             </span>
-            <span class="float-end"><a class="optica_closable_action" href="#">
+            <span class="float-end"><a class="text-light" href="#">
                     <i class="fas fa-times"></i>
                 </a>
             </span>
@@ -23,7 +23,13 @@
     <div id="divDetalle" class="col-12">
         <div class="card">
             <div class="card-header card-hform ">
-                Detalles del Cliente                
+                Detalles del Cliente 
+                <span class="float-end">
+                    <a href="#" 
+                       onclick="cm.setDetalleVisible(false);">
+                        <i class="fas fa-times"></i>
+                    </a>
+                </span>
             </div>
             <div class="card-body">
                 <div class="form">

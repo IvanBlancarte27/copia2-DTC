@@ -119,3 +119,10 @@ hamburguesa
     background-color: #04272E;
 }
 
+.modulo-title
+{
+    background-color: #04272E;
+    padding-top: 0px; 
+    padding-bottom: 0px;
+    margin-top: 5px;
+}
