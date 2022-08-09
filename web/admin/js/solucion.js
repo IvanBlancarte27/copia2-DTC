@@ -44,20 +44,20 @@ export function fillTable()
     //Declaramos una variable donde se guardara el contenido de la tabla:
     let contenido = '';
     //Recorrer el Arreglo
-    for (let i = 0; i < accesorios.length; i++)
+    for (let i = 0; i < soluciones.length; i++)
     {
         //Vamos generando el contenido de la tabla dinamicamente:
         contenido = contenido + '<tr>' +
-                '<td>' + accesorios[i].nombre + '</td>' +
-                '<td>' + accesorios[i].marca + '</td>' +
-                '<td>' + accesorios[i].precioCompra + '</td>' +
-                '<td>' + accesorios[i].precioVenta + '</td>' +
-                '<td>' + accesorios[i].existencias + '</td>' +
+                '<td>' + soluciones[i].nombre + '</td>' +
+                '<td>' + soluciones[i].marca + '</td>' +
+                '<td>' + soluciones[i].precioCompra + '</td>' +
+                '<td>' + soluciones[i].precioVenta + '</td>' +
+                '<td>' + soluciones[i].existencias + '</td>' +
                 '<td><a href="#" onclick="cm.mostrarDetalleAccesorio('+
-                                                                    accesorios[i].idAccesorio+');">Ver Detalle</a></td>' +
+                                                                    soluciones[i].idAccesorio+');">Ver Detalle</a></td>' +
                 '</tr>';
     }
-    document.getElementById('tbodyAccesorios').innerHTML = contenido;
+    document.getElementById('tbodysoluciones').innerHTML = contenido;
 }
 //Muestra y oculta el detalle del Accesorio
 export function setDetalleVisible(valor)
@@ -91,14 +91,14 @@ export function mostrarDetalleAccesorio(idAccesorio)
         
         //Llenamos el formulario con los datos del accesorio
 
-        document.getElementById("txtCodigoAccesorio").value = accesorios[i].idAccesorio;
-        document.getElementById("txtCodigoProducto").value = accesorios[i].idAccesorio;
-        document.getElementById("txtNumeroUnico").value = accesorios[i].numeroUnico;
-        document.getElementById("txtNombre").value = accesorios[i].nombre;
-        document.getElementById("txtMarca").value = accesorios[i].marca;
-        document.getElementById("txtPrecioCompra").value = accesorios[i].precioCompra;
-        document.getElementById("txtPrecioVenta").value = accesorios[i].precioVenta;
-        document.getElementById("txtExistencias").value = accesorios[i].existencias;
+        document.getElementById("txtCodigoAccesorio").value = soluciones[i].idAccesorio;
+        document.getElementById("txtCodigoProducto").value = soluciones[i].idAccesorio;
+        document.getElementById("txtNumeroUnico").value = soluciones[i].numeroUnico;
+        document.getElementById("txtNombre").value = soluciones[i].nombre;
+        document.getElementById("txtMarca").value = soluciones[i].marca;
+        document.getElementById("txtPrecioCompra").value = soluciones[i].precioCompra;
+        document.getElementById("txtPrecioVenta").value = soluciones[i].precioVenta;
+        document.getElementById("txtExistencias").value = soluciones[i].existencias;
 
     } else //Se supone que esto nunca debe suceder
         alert('Accesorio No encontrado.');
@@ -123,15 +123,15 @@ export function limpiarFormularioDetalle()
 
 
 //Buscar la posicion de un Accesorio
-//dentro del arreglo de accesorios
+//dentro del arreglo de soluciones
 //con base en el idAccesorio
 function buscarPosicionPorId(id)
 {
-    for (let i = 0;i < accesorios.length; i++)
+    for (let i = 0;i < soluciones.length; i++)
     {
         //Comparamos si el ID del Accesorio en la posicion
         //actual, es igual al id que nos pasan como parametro:
-        if (accesorios[i].idAccesorio === id) {
+        if (soluciones[i].idAccesorio === id) {
             return i; //Si son iguales, regresamos la posicion
         }
     }
@@ -164,7 +164,7 @@ export function save()
         accesorio.idAccesorio = Date.now() + 1;
         accesorio.numeroUnico = '' + Date.now() + 2;
         
-        accesorios[accesorios.length]= accesorio;
+        soluciones[soluciones.length]= accesorio;
         
         document.getElementById("txtCodigoProducto").value=accesorio.idProducto;
         document.getElementById("txtCodigoAccesorio").value=accesorio.idAccesorio;
@@ -185,7 +185,7 @@ export function save()
         
         if (pos >= 0) 
         {
-            accesorios[pos] = accesorio;
+            soluciones[pos] = accesorio;
             
             mandarConfirmacionActualizar();
             
@@ -206,7 +206,7 @@ export function remove()
         pos = buscarPosicionPorId(parseInt(document.getElementById("txtCodigoAccesorio").value));
         
         if (pos >= 0){
-            accesorios.splice(pos, 1);
+            soluciones.splice(pos, 1);
             
             mandarConfirmacionEliminar();
             
