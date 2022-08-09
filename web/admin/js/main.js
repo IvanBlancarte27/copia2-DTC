@@ -17,14 +17,14 @@ function cargarModuloEmpleado()
         //dentro del contenedor principal
         document.getElementById('contenedor_principal').innerHTML=datos;
                  
-        import('./empleado.js') 
-                .then(obj => {
+        import('./empleado.js').then(obj => {
                     cm=obj;
                     cm.inicializar();
                     
                 });
              });  
 }
+
 function cargarModuloCliente()
 {
      //AJAX: Asynchronous
@@ -48,6 +48,7 @@ function cargarModuloCliente()
                 });
              });   
 }
+
 function cargarModuloAccesorio()
 {
     //AJAX: Asynchronous
