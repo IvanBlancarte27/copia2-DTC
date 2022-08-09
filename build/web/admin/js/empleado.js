@@ -47,13 +47,12 @@ let empleados = [
     }
 ];
 
-//iniciarlizar
+//Inicializar
 export function inicializar()
 {
     setDetalleVisible(false);
     fillTable();
 }
-//finInicializar
 
 /**
  * Llena una tabla a partir de un Arreglo JSON.
