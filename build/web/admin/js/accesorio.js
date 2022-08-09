@@ -106,10 +106,7 @@ export function mostrarDetalleAccesorio(idAccesorio)
        //Mostramos el formulario que llenamos previamente
        setDetalleVisible(true);
 }
-
-
 export function limpiarFormularioDetalle()
-
 {
     document.getElementById("txtCodigoAccesorio").value = "";
     document.getElementById("txtCodigoProducto").value = "";
@@ -120,8 +117,6 @@ export function limpiarFormularioDetalle()
     document.getElementById("txtPrecioVenta").value = "";
     document.getElementById("txtExistencias").value = "";
 }
-
-
 //Buscar la posicion de un Accesorio
 //dentro del arreglo de accesorios
 //con base en el idAccesorio
@@ -141,7 +136,6 @@ function buscarPosicionPorId(id)
 
     return -1;
 }
-
 export function save()
 {
     
@@ -197,7 +191,6 @@ export function save()
         }
     }
 }
-
 export function remove()
 {
     let pos = -1;
@@ -218,7 +211,6 @@ export function remove()
         }
     }
 }
-
 export function limpiar_y_mostrarDetalle()
 {
     limpiarFormularioDetalle();

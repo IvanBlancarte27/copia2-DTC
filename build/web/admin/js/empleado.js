@@ -47,13 +47,13 @@ let empleados = [
     }
 ];
 
-//Inicializar
+//Corrección 
+
 export function inicializar()
 {
     setDetalleVisible(false);
     fillTable();
 }
-
 /**
  * Llena una tabla a partir de un Arreglo JSON.
  */
@@ -64,6 +64,7 @@ export function fillTable()
     //Recorrer el Arreglo
     for (let i = 0; i < empleados.length; i++)
     {
+        //Vamos generando el contenido de la tabla dinamicamente:
         contenido = contenido + '<tr>' +
                 '<td>' + empleados[i].nombre + '</td>' +
                 '<td>' + empleados[i].apellido_paterno + '</td>' +
@@ -77,13 +78,13 @@ export function fillTable()
                 '<td>' + empleados[i].correo_electronico + '</td>' +
                 '<td>' + empleados[i].usuario + '</td>' +
                 '<td>' + empleados[i].contraseña + '</td>' +
-                '<td><a href="#" onclick="cm.mostrarDetalleEmpleado(' +
-                empleados[i].idEmpleado + ');">Ver Detalle</a></td>' +
+                '<td><a href="#" onclick="cm.mostrarDetalleEmpleado('+
+                                                                    empleados[i].idAccesorio+');">Ver Detalle</a></td>' +
                 '</tr>';
     }
-    document.getElementById('tbodyEmpleado').innerHTML = contenido;
+    document.getElementById('tbodyEmpleados').innerHTML = contenido;
 }
-//Muestra y oculta el detalle del Accesorio
+//Muestra y oculta el detalle del Empleado
 export function setDetalleVisible(valor)
 {
     //El tripe igual es para comparar valores
@@ -110,9 +111,9 @@ export function mostrarDetalleEmpleado(idEmpleado)
     if (i >= 0)
     {
         //Limpiamos formulario
-
+        
         limpiarFormularioDetalle();
-
+        
         //Llenamos el formulario con los datos del accesorio
 
         document.getElementById("txtNombreE").value = empleados[i].nombre;
@@ -129,14 +130,11 @@ export function mostrarDetalleEmpleado(idEmpleado)
 
     } else //Se supone que esto nunca debe suceder
         alert('Empleado No encontrado.');
-
-    //Mostramos el formulario que llenamos previamente
-    setDetalleVisible(true);
+       
+       //Mostramos el formulario que llenamos previamente
+       setDetalleVisible(true);
 }
-
-
 export function limpiarFormularioDetalle()
-
 {
     document.getElementById("txtNombreE").value = "";
     document.getElementById("txtApellidoPaternoE").value = "";
@@ -150,17 +148,12 @@ export function limpiarFormularioDetalle()
     document.getElementById("txtRFC").value = "";
     document.getElementById("pwdContraseña").value = "";
 }
-
-
-//Buscar la posicion de un Accesorio
-//dentro del arreglo de accesorios
-//con base en el idAccesorio
+//Buscar la posicion de un Empleado dentro del arreglo de empleado con base en el id
 function buscarPosicionPorId(id)
 {
-    for (let i = 0;
-    i < empleados.length; i++)
+    for (let i = 0;i < empleados.length; i++)
     {
-        //Comparamos si el ID del Accesorio en la posicion
+        //Comparamos si el ID del Empleado en la posicion
         //actual, es igual al id que nos pasan como parametro:
         if (empleados[i].idEmpleado === id) {
             return i; //Si son iguales, regresamos la posicion
@@ -172,7 +165,6 @@ function buscarPosicionPorId(id)
 
     return -1;
 }
-
 //Guardar los datos de un empleado (insert/update)
 export function save()
 {
@@ -251,7 +243,7 @@ export function save()
 export function remove()
 {
     let pos = -1;
-    if (document.getElementById("txtIdEmpleado").value.trin()!="")
+    if (document.getElementById("txtIdEmpleado").value.trin() !== "")
     {
         //Buscamos la posición del empleado:
         pos = buscarPosicionPorId(parseInt(document.getElementById("txtIdEmpleado").value));
@@ -282,7 +274,6 @@ export function limpiar_y_mostrarDetalle()
     limpiarFormularioDetalle();
     setDetalleVisible(true);
 }
-
 
 
 
