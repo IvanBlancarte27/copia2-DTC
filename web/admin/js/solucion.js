@@ -53,7 +53,7 @@ export function fillTable()
                 '<td>' + soluciones[i].precioCompra + '</td>' +
                 '<td>' + soluciones[i].precioVenta + '</td>' +
                 '<td>' + soluciones[i].existencias + '</td>' +
-                '<td><a href="#" onclick="cm.mostrarDetalle('+
+                '<td><a href="#" onclick="cm.mostrarDetalleSolucion('+
                                                                     soluciones[i].idSolucion+');">Ver Detalle</a></td>' +
                 '</tr>';
     }
@@ -149,7 +149,7 @@ export function save()
     
     let solucion = {
                         idProducto  : 0,
-                        idSolucion : 0,
+                        idSolucion  : 0,
                         numeroUnico : 0,
                         nombre      : document.getElementById("txtNombre").value,
                         marca       : document.getElementById("txtMarca").value,
