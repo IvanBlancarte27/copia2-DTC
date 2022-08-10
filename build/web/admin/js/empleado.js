@@ -79,7 +79,7 @@ export function fillTable()
                 '<td>' + empleados[i].usuario + '</td>' +
                 '<td>' + empleados[i].contraseña + '</td>' +
                 '<td><a href="#" onclick="cm.mostrarDetalleEmpleado('+
-                                                                    empleados[i].idAccesorio+');">Ver Detalle</a></td>' +
+                                                                    empleados[i].idEmpleado+');">Ver Detalle</a></td>' +
                 '</tr>';
     }
     document.getElementById('tbodyEmpleados').innerHTML = contenido;
