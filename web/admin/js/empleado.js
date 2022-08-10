@@ -116,12 +116,14 @@ export function mostrarDetalleEmpleado(idEmpleado)
         
         //Llenamos el formulario con los datos del accesorio
 
+        document.getElementById("txtNumeroUnicoEmpleado").value= empleados[i].numeroUnicoEmpleado;
+        document.getElementById("txtIdEmpleado").value=empleados[i].idEmpleado;
         document.getElementById("txtNombreE").value = empleados[i].nombre;
         document.getElementById("txtApellidoPaternoE").value = empleados[i].apellido_paterno;
         document.getElementById("txtApellidoMaternoE").value = empleados[i].apellido_materno;
         document.getElementById("txtCorreoElectronico").value = empleados[i].correo_electronico;
         document.getElementById("txtRFC").value = empleados[i].rfc;
-        document.getElementsByName("rbtnGenero").value = empleados[i].genero;
+        document.getElementById("txtGenero").value = empleados[i].genero;
         document.getElementsByName("rbtnEstatus").value = empleados[i].estatus;
         document.getElementById("txtTelefonoCasa").value = empleados[i].telefono_casa;
         document.getElementById("txtTelefonoMovil").value = empleados[i].telefono_movil;
@@ -136,12 +138,13 @@ export function mostrarDetalleEmpleado(idEmpleado)
 }
 export function limpiarFormularioDetalle()
 {
+    document.getElementById("txtNumeroUnicoEmpleado").value="";
+    document.getElementById("txtIdEmpleado").value="";
     document.getElementById("txtNombreE").value = "";
     document.getElementById("txtApellidoPaternoE").value = "";
     document.getElementById("txtApellidoMaternoE").value = "";
     document.getElementById("txtCorreoElectronico").value = "";
-    document.getElementsByName("rbtnGenero").value = "";
-    document.getElementsByName("rbtnEstatus").value = "";
+    document.getElementById("txtGenero").value = "";
     document.getElementById("txtTelefonoCasa").value = "";
     document.getElementById("txtTelefonoMovil").value = "";
     document.getElementById("txtUsuario").value = "";
@@ -173,18 +176,17 @@ export function save()
     //Definimos los atributos y valores del empleado
     let empleado = {
         idEmpleado: 0,
-        numeroUnicoEmpleado = 0,
-        nombre: document.getElementById("txtNombre").value,
-        apellido_paterno: document.getElementById("txtApellidoPaterno").value,
-        apellido_materno: document.getElementById("txtApellidoMaterno").value,
+        numeroUnicoEmpleado : 0,
+        nombre: document.getElementById("txtNombreE").value,
+        apellido_paterno: document.getElementById("txtApellidoPaternoE").value,
+        apellido_materno: document.getElementById("txtApellidoMaternoE").value,
         genero: document.getElementById("txtGenero").value,
-        estatus: document.getElementById("txtEstatus").value,
         rfc: document.getElementById("txtRFC").value,
         telefono_casa: document.getElementById("txtTelefonoCasa").value,
         telefono_movil: document.getElementById("txtTelefonoMovil").value,
         correo_electronico: document.getElementById("txtCorreoElectronico").value,
         usuario: document.getElementById("txtUsuario").value,
-        contraseña: document.getElementById("txtContraseña").value
+        contraseña: document.getElementById("pwdContraseña").value
     };
     //Revisamos si hay algun valor en la caja de texto del id del empleado:
     //El trin quita espacios a la derecha e izquierda
