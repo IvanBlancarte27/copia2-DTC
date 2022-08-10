@@ -3,7 +3,7 @@ let soluciones = [
         idProducto: 1,
         idSolucion: 2,
         numeroUnico:"ABC15268",
-        nombre: "Estuche",
+        nombre: "Gotita feliz",
         marca: "Sin Marca",
         precioCompra: 129.90,
         precioVenta: 350.00,
