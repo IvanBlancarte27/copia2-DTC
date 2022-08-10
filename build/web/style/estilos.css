@@ -127,10 +127,17 @@ hamburguesa
     margin-top: 5px;
 }
 
+#contenedor_principal
+{
+    z-index:1; 
+}
+
+
 @media(max-width: 991px)
 {
     #menuPrincipal
     {
         background-color: rgb(1, 35, 42);
+        z-index: 2;
     }
 }
