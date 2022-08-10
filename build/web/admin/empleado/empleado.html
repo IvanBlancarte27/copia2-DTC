@@ -36,45 +36,47 @@
                     <div class="row">
                         <div class="col">
                             <div class="row">
-                                <div class="col">
-                                    <label for="txtCodigo" class="form-label">C&oacute;digo del Producto</label>
+                                <div class="col-6">
                                     <div class="row">
-                                        <div class="col-5">                            
+                                        <div class="col-6">                            
                                             <div class="form-floating bg-gradient" style="padding-left: 6px; background-color: #34383c; border-radius: 5px;">
                                                 <input id="txtNumeroUnicoEmpleado" type="text" class="form-control" readonly/>
                                                 <label for="txtNumeroUnicoEmpleado">N&uacute;mero &Uacute;nico:</label>
                                             </div>
                                         </div>
-                                        <div class="col-5">                            
+                                        <div class="col-6">                            
                                             <div class="form-floating bg-gradient" style="padding-left: 6px; background-color: #34383c; border-radius: 5px;">
                                                 <input id="txtIdEmpleado" type="text" class="form-control" readonly/>
                                                 <label for="txtIdEmpleado"> </label>
                                             </div>
-                                        </div>
-                                        <div class="col-2">                                
-                                            <label>Estatus: </label><br>
-                                            <input id="rbtnActivo" name="rbtnEstatus" type="radio" class="form-check-input"/>
-                                            <label for="rbtnActivo">Activo</label>
-                                            &nbsp;&nbsp;&nbsp;
-                                            <input id="rbtnInactivo" name="rbtnEstatus" type="radio" class="form-check-input"/>
-                                            <label for="rbtnInactivo">Inactivo</label>
-                                        </div> 
+                                        </div>                                        
                                     </div>  
                                 </div>
-                            </div>                            
+                                <div class="col-6">
+                                    <div class="row" style="padding-top: 8px; padding-bottom: 16px;">                         
+                                        <div class="col-6">                            
+                                            <div class="form-floating bg-gradient" style="padding-left: 6px; background-color: #04272E; border-radius: 5px;">
+                                                <input id="txtUsuario" type="text" class="form-control" placeholder="Usuario"/>
+                                                <label for="txtUsuario">Usuario:</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="form-floating bg-gradient" style="padding-left: 6px; background-color: #04272E; border-radius: 5px;">
+                                                <input id="pwdContraseña" type="password" class="form-control" placeholder="Contraseña"/>
+                                                <label for="pwdContraseña">Contraseña:</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> 
+                            </div>
                         </div>                       
                     </div>
                     <div class="row" style="padding-top: 8px; padding-bottom: 16px;">
-                        <div class="col-3"> 
-                            <label>G&eacute;nero: </label><br>
-                            <input id="rbtnHombre" name="rbtnGenero" type="radio" class="form-check-input"/>
-                            <label for="rbtnHombre" class="form-check-label">Hombre</label>
-                            &nbsp;&nbsp;&nbsp;&nbsp;
-                            <input id="rbtnMujer" name="rbtnGenero" type="radio" class="form-check-input"/>
-                            <label for="rbtnMujer" class="form-check-label">Mujer</label>
-                            &nbsp;&nbsp;&nbsp;&nbsp;
-                            <input id="rbtnOtro" name="rbtnGenero" type="radio" class="form-check-input"/> 
-                            <label for="rbtnOtro" class="form-check-label">Otro</label>                                
+                        <div class="col-3">                            
+                            <div class="form-floating bg-gradient" style="padding-left: 6px; background-color: #04272E; border-radius: 5px;">
+                                <input id="txtGenero" type="text" class="form-control" placeholder="Nombre del Empleado"/>
+                                <label for="txtGenero">Genero:</label>
+                            </div>                        
                         </div>
                         <div class="col-3">                            
                             <div class="form-floating bg-gradient" style="padding-left: 6px; background-color: #04272E; border-radius: 5px;">
@@ -121,20 +123,6 @@
                             </div>
                         </div> 
                     </div> 
-                    <div class="row" style="padding-top: 8px; padding-bottom: 16px;">                         
-                        <div class="col-6">                            
-                            <div class="form-floating bg-gradient" style="padding-left: 6px; background-color: #04272E; border-radius: 5px;">
-                                <input id="txtUsuario" type="text" class="form-control" placeholder="Usuario"/>
-                                <label for="txtUsuario">Usuario:</label>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="form-floating bg-gradient" style="padding-left: 6px; background-color: #04272E; border-radius: 5px;">
-                                <input id="pwdContraseña" type="password" class="form-control" placeholder="Contraseña"/>
-                                <label for="pwdContraseña">Contraseña:</label>
-                            </div>
-                        </div>
-                    </div>
                     <div class="my-3 text-center">
                         <button class="btn btn-primary" onclick="cm.save();"><i class="fas fa-save"></i>&nbsp;&nbsp;Guardar</button>
                         <button class="btn btn-danger mx-3" onclick="cm.remove();"><i class="fas fa-trash"></i>&nbsp;Eliminar</button>
