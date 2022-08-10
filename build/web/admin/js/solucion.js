@@ -31,7 +31,7 @@ let soluciones = [
     }
 
 ];
-export function inicializar()
+export function inicializarSol()
 {
     setDetalleVisible(false);
     fillTable();

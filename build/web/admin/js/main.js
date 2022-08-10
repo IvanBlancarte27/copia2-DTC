@@ -93,7 +93,7 @@ function cargarModuloSolucion()
         import('./solucion.js') 
                 .then(obj => {
                     cm=obj;
-                    cm.inicializar();
+                    cm.inicializarSol();
                     
                 });
              });
