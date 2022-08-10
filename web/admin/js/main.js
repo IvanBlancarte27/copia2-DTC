@@ -19,7 +19,7 @@ function cargarModuloEmpleado()
                  
         import('./empleado.js').then(obj => {
                     cm=obj;
-                    cm.inicializar();
+                    cm.inicializarEmpleado();
                     
                 });
              });  

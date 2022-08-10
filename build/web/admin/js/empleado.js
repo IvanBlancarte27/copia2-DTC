@@ -49,7 +49,7 @@ let empleados = [
 
 //Corrección 
 
-export function inicializar()
+export function inicializarEmpleado()
 {
     setDetalleVisible(false);
     fillTable();
