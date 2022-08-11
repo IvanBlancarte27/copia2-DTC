@@ -1,9 +1,9 @@
-let accesorios = [
+let soluciones = [
     {
         idProducto: 1,
-        idAccesorio: 2,
+        idSolucion: 2,
         numeroUnico:"ABC15268",
-        nombre: "Estuche",
+        nombre: "Gotita feliz",
         marca: "Sin Marca",
         precioCompra: 129.90,
         precioVenta: 350.00,
@@ -11,7 +11,7 @@ let accesorios = [
     },
     {
         idProducto: 2,
-        idAccesorio: 3,
+        idSolucion: 3,
         numeroUnico:"IBL358",
         nombre: "Cuerda sujecion",
         marca: "Gukci",
@@ -21,7 +21,7 @@ let accesorios = [
     },
     {
         idProducto: 3,
-        idAccesorio: 4,
+        idSolucion: 4,
         numeroUnico:"KAD258",
         nombre: "Paño de microfibra",
         marca: "Fendik",
@@ -31,7 +31,7 @@ let accesorios = [
     }
 
 ];
-export function inicializar()
+export function inicializarSol()
 {
     setDetalleVisible(false);
     fillTable();
@@ -44,20 +44,20 @@ export function fillTable()
     //Declaramos una variable donde se guardara el contenido de la tabla:
     let contenido = '';
     //Recorrer el Arreglo
-    for (let i = 0; i < accesorios.length; i++)
+    for (let i = 0; i < soluciones.length; i++)
     {
         //Vamos generando el contenido de la tabla dinamicamente:
         contenido = contenido + '<tr>' +
-                '<td>' + accesorios[i].nombre + '</td>' +
-                '<td>' + accesorios[i].marca + '</td>' +
-                '<td>' + accesorios[i].precioCompra + '</td>' +
-                '<td>' + accesorios[i].precioVenta + '</td>' +
-                '<td>' + accesorios[i].existencias + '</td>' +
-                '<td><a href="#" onclick="cm.mostrarDetalleAccesorio('+
-                                                                    accesorios[i].idAccesorio+');">Ver Detalle</a></td>' +
+                '<td>' + soluciones[i].nombre + '</td>' +
+                '<td>' + soluciones[i].marca + '</td>' +
+                '<td>' + soluciones[i].precioCompra + '</td>' +
+                '<td>' + soluciones[i].precioVenta + '</td>' +
+                '<td>' + soluciones[i].existencias + '</td>' +
+                '<td><a href="#" onclick="cm.mostrarDetalleSolucion('+
+                                                                    soluciones[i].idSolucion+');">Ver Detalle</a></td>' +
                 '</tr>';
     }
-    document.getElementById('tbodyAccesorios').innerHTML = contenido;
+    document.getElementById('tbodySolucion').innerHTML = contenido;
 }
 //Muestra y oculta el detalle del Accesorio
 export function setDetalleVisible(valor)
@@ -75,12 +75,12 @@ export function setDetalleVisible(valor)
     }
 }
 
-export function mostrarDetalleAccesorio(idAccesorio)
+export function mostrarDetalleSolucion(idSolucion)
 {
     let i = -1;
 
-    //Buscamos la posicion del accesorio
-    i = buscarPosicionPorId(idAccesorio);
+    //Buscamos la posicion de solucion
+    i = buscarPosicionPorId(idSolucion);
 
     //Revisamos que sea una posicion valida
     if (i >= 0)
@@ -89,26 +89,29 @@ export function mostrarDetalleAccesorio(idAccesorio)
         
         limpiarFormularioDetalle();
         
-        //Llenamos el formulario con los datos del accesorio
+        //Llenamos el formulario con los datos de solucion
 
-        document.getElementById("txtCodigoAccesorio").value = accesorios[i].idAccesorio;
-        document.getElementById("txtCodigoProducto").value = accesorios[i].idAccesorio;
-        document.getElementById("txtNumeroUnico").value = accesorios[i].numeroUnico;
-        document.getElementById("txtNombre").value = accesorios[i].nombre;
-        document.getElementById("txtMarca").value = accesorios[i].marca;
-        document.getElementById("txtPrecioCompra").value = accesorios[i].precioCompra;
-        document.getElementById("txtPrecioVenta").value = accesorios[i].precioVenta;
-        document.getElementById("txtExistencias").value = accesorios[i].existencias;
+        document.getElementById("txtCodigoSolucion").value = soluciones[i].idSolucion;
+        document.getElementById("txtCodigoProducto").value = soluciones[i].idSolucion;
+        document.getElementById("txtNumeroUnico").value = soluciones[i].numeroUnico;
+        document.getElementById("txtNombre").value = soluciones[i].nombre;
+        document.getElementById("txtMarca").value = soluciones[i].marca;
+        document.getElementById("txtPrecioCompra").value = soluciones[i].precioCompra;
+        document.getElementById("txtPrecioVenta").value = soluciones[i].precioVenta;
+        document.getElementById("txtExistencias").value = soluciones[i].existencias;
 
     } else //Se supone que esto nunca debe suceder
-        alert('Accesorio No encontrado.');
+        alert('Solucion No encontrado.');
        
        //Mostramos el formulario que llenamos previamente
        setDetalleVisible(true);
 }
+
+
 export function limpiarFormularioDetalle()
+
 {
-    document.getElementById("txtCodigoAccesorio").value = "";
+    document.getElementById("txtCodigoSolucion").value = "";
     document.getElementById("txtCodigoProducto").value = "";
     document.getElementById("txtNumeroUnico").value = "";
     document.getElementById("txtNombre").value = "";
@@ -117,16 +120,18 @@ export function limpiarFormularioDetalle()
     document.getElementById("txtPrecioVenta").value = "";
     document.getElementById("txtExistencias").value = "";
 }
+
+
 //Buscar la posicion de un Accesorio
-//dentro del arreglo de accesorios
+//dentro del arreglo de soluciones
 //con base en el idAccesorio
 function buscarPosicionPorId(id)
 {
-    for (let i = 0;i < accesorios.length; i++)
+    for (let i = 0;i < soluciones.length; i++)
     {
         //Comparamos si el ID del Accesorio en la posicion
         //actual, es igual al id que nos pasan como parametro:
-        if (accesorios[i].idAccesorio === id) {
+        if (soluciones[i].idSolucion === id) {
             return i; //Si son iguales, regresamos la posicion
         }
     }
@@ -136,14 +141,15 @@ function buscarPosicionPorId(id)
 
     return -1;
 }
+
 export function save()
 {
     
     let pos = -1;
     
-    let accesorio = {
+    let solucion = {
                         idProducto  : 0,
-                        idAccesorio : 0,
+                        idSolucion  : 0,
                         numeroUnico : 0,
                         nombre      : document.getElementById("txtNombre").value,
                         marca       : document.getElementById("txtMarca").value,
@@ -152,17 +158,17 @@ export function save()
                         existencias : parseFloat(document.getElementById("txtExistencias").value)
                     };
                    
-    if (document.getElementById("txtCodigoAccesorio").value.trim() === '') 
+    if (document.getElementById("txtCodigoSolucion").value.trim() === '') 
     {
-        accesorio.idProducto = Date.now();
-        accesorio.idAccesorio = Date.now() + 1;
-        accesorio.numeroUnico = '' + Date.now() + 2;
+        solucion.idProducto = Date.now();
+        solucion.idSolucion = Date.now() + 1;
+        solucion.numeroUnico = '' + Date.now() + 2;
         
-        accesorios[accesorios.length]= accesorio;
+        soluciones[soluciones.length]= soluciones;
         
-        document.getElementById("txtCodigoProducto").value=accesorio.idProducto;
-        document.getElementById("txtCodigoAccesorio").value=accesorio.idAccesorio;
-        document.getElementById("txtNumeroUnico").value=accesorio.numeroUnico;
+        document.getElementById("txtCodigoProducto").value=solucion.idProducto;
+        document.getElementById("txtCodigoSolucion").value=solucion.idSolucion;
+        document.getElementById("txtNumeroUnico").value=solucion.numeroUnico;
         
         mandarConfirmacionGuardar();
         
@@ -170,16 +176,16 @@ export function save()
     }
     else
     {
-        accesorio.idProducto = parseInt(document.getElementById("txtCodigoProducto").value);
-        accesorio.idAccesorio = parseInt(document.getElementById("txtCodigoAccesorio").value);
-        accesorio.numeroUnico = document.getElementById("txtNumeroUnico").value;
+        soluciones.idProducto = parseInt(document.getElementById("txtCodigoProducto").value);
+        soluciones.idSolucion = parseInt(document.getElementById("txtCodigoSolucion").value);
+        soluciones.numeroUnico = document.getElementById("txtNumeroUnico").value;
         
-        pos = buscarPosicionPorId(accesorio.idAccesorio);
+        pos = buscarPosicionPorId(soluciones.idSolucion);
         
         
         if (pos >= 0) 
         {
-            accesorios[pos] = accesorio;
+            soluciones[pos] = soluciones;
             
             mandarConfirmacionActualizar();
             
@@ -191,15 +197,16 @@ export function save()
         }
     }
 }
+
 export function remove()
 {
     let pos = -1;
-    if (document.getElementById("txtCodigoAccesorio").value.trim() !== '') {
+    if (document.getElementById("txtCodigoSolucion").value.trim() !== '') {
         
-        pos = buscarPosicionPorId(parseInt(document.getElementById("txtCodigoAccesorio").value));
+        pos = buscarPosicionPorId(parseInt(document.getElementById("txtCodigoSolucion").value));
         
         if (pos >= 0){
-            accesorios.splice(pos, 1);
+            soluciones.splice(pos, 1);
             
             mandarConfirmacionEliminar();
             
@@ -211,8 +218,11 @@ export function remove()
         }
     }
 }
+
 export function limpiar_y_mostrarDetalle()
 {
     limpiarFormularioDetalle();
     setDetalleVisible(true);
 }
+
+

@@ -106,10 +106,7 @@ export function mostrarDetalleAccesorio(idAccesorio)
        //Mostramos el formulario que llenamos previamente
        setDetalleVisible(true);
 }
-
-
 export function limpiarFormularioDetalle()
-
 {
     document.getElementById("txtCodigoAccesorio").value = "";
     document.getElementById("txtCodigoProducto").value = "";
@@ -120,8 +117,6 @@ export function limpiarFormularioDetalle()
     document.getElementById("txtPrecioVenta").value = "";
     document.getElementById("txtExistencias").value = "";
 }
-
-
 //Buscar la posicion de un Accesorio
 //dentro del arreglo de accesorios
 //con base en el idAccesorio
@@ -141,5 +136,83 @@ function buscarPosicionPorId(id)
 
     return -1;
 }
-
-
+export function save()
+{
+    
+    let pos = -1;
+    
+    let accesorio = {
+                        idProducto  : 0,
+                        idAccesorio : 0,
+                        numeroUnico : 0,
+                        nombre      : document.getElementById("txtNombre").value,
+                        marca       : document.getElementById("txtMarca").value,
+                        precioCompra: parseFloat(document.getElementById("txtPrecioCompra").value),
+                        precioVenta : parseFloat(document.getElementById("txtPrecioVenta").value),
+                        existencias : parseFloat(document.getElementById("txtExistencias").value)
+                    };
+                   
+    if (document.getElementById("txtCodigoAccesorio").value.trim() === '') 
+    {
+        accesorio.idProducto = Date.now();
+        accesorio.idAccesorio = Date.now() + 1;
+        accesorio.numeroUnico = '' + Date.now() + 2;
+        
+        accesorios[accesorios.length]= accesorio;
+        
+        document.getElementById("txtCodigoProducto").value=accesorio.idProducto;
+        document.getElementById("txtCodigoAccesorio").value=accesorio.idAccesorio;
+        document.getElementById("txtNumeroUnico").value=accesorio.numeroUnico;
+        
+        mandarConfirmacionGuardar();
+        
+        fillTable();
+    }
+    else
+    {
+        accesorio.idProducto = parseInt(document.getElementById("txtCodigoProducto").value);
+        accesorio.idAccesorio = parseInt(document.getElementById("txtCodigoAccesorio").value);
+        accesorio.numeroUnico = document.getElementById("txtNumeroUnico").value;
+        
+        pos = buscarPosicionPorId(accesorio.idAccesorio);
+        
+        
+        if (pos >= 0) 
+        {
+            accesorios[pos] = accesorio;
+            
+            mandarConfirmacionActualizar();
+            
+            fillTable();
+        }
+        else
+        {
+            mandarError();
+        }
+    }
+}
+export function remove()
+{
+    let pos = -1;
+    if (document.getElementById("txtCodigoAccesorio").value.trim() !== '') {
+        
+        pos = buscarPosicionPorId(parseInt(document.getElementById("txtCodigoAccesorio").value));
+        
+        if (pos >= 0){
+            accesorios.splice(pos, 1);
+            
+            mandarConfirmacionEliminar();
+            
+            fillTable();
+            
+            limpiarFormularioDetalle();
+            
+            setDetalleVisible(false);
+        }
+    }
+}
+export function limpiar_y_mostrarDetalle()
+{
+    limpiarFormularioDetalle();
+    setDetalleVisible(true);
+}

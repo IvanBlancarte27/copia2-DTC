@@ -17,14 +17,14 @@ function cargarModuloEmpleado()
         //dentro del contenedor principal
         document.getElementById('contenedor_principal').innerHTML=datos;
                  
-        import('./empleado.js') 
-                .then(obj => {
+        import('./empleado.js').then(obj => {
                     cm=obj;
-                    cm.inicializar();
+                    cm.inicializarEmpleado();
                     
                 });
              });  
 }
+
 function cargarModuloCliente()
 {
      //AJAX: Asynchronous
@@ -43,11 +43,12 @@ function cargarModuloCliente()
                  
         import('./cliente.js').then(obj => {
                     cm=obj;
-                    cm.inicializar();
+                    cm.inicializarCliente();
                     
                 });
              });   
 }
+
 function cargarModuloAccesorio()
 {
     //AJAX: Asynchronous
@@ -97,3 +98,53 @@ function cargarModuloArmazon()
              });
 }
 
+function cargarModuloSolucion()
+{
+    //AJAX: Asynchronous
+    fetch('producto/solucion/solucion.html')
+    .then(respuesta => {
+        //Devolvemos el contenido
+        //de la respuesta en formato
+        //texto:
+        return respuesta.text();
+                       })
+    .then(datos => {
+        
+        //Insertamos el codigo HTML
+        //dentro del contenedor principal
+        document.getElementById('contenedor_principal').innerHTML=datos;
+                 
+        import('./solucion.js') 
+                .then(obj => {
+                    cm=obj;
+                    cm.inicializarSol();
+                    
+                });
+             });
+}
+
+function cargarModuloLentes()
+{
+    //alert('hi')
+    //AJAX: Asynchronous
+    fetch('producto/lente/lentesdecontacto.html')
+    .then(respuesta => {
+       
+        //Devolvemos el contenido
+        //de la respuesta en formato
+        //texto:
+        return respuesta.text();
+                       })
+    .then(datos => {
+        
+        //Insertamos el codigo HTML
+        //dentro del contenedor principal
+        document.getElementById('contenedor_principal').innerHTML=datos;
+                 
+        import('./lentescontacto.js').then(obj => {
+                    cm=obj;
+                    cm.inicializarLentesConct();
+                    
+                });
+             });
+}
