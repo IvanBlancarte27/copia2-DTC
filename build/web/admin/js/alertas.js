@@ -60,3 +60,13 @@ function mandarError()
         timer: 1500
     });
 }
+
+function mantenimiento()
+{
+    Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Lo sentimos, este modulo esta en mantenimiento!'
+    })
+}
+
