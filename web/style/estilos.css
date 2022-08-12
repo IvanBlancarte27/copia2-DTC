@@ -202,4 +202,10 @@ hamburguesa
     {
         display: none;
     }
+    
+    .foot
+    {
+        margin-top: 100%;
+        float: bottom;
+    }
 }
