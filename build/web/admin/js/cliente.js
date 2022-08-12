@@ -59,13 +59,6 @@ export function fillTable()
     for (let i = 0; i < clientes.length; i++)
     {
 
-        //Generar numero unico
-        let letra1 = clientes[i].apellido_paterno.substring(0, 2);
-        let letra2 = clientes[i].apellido_materno.substring(0, 1);
-
-        let numero_unico = letra1 + letra2 + "-" + Math.floor(Math.random() * 9999);
-        //fin numero unico
-
         contenido = contenido + '<tr>'+
                 '<td>' + clientes[i].nombre +'</td>' +
                 '<td>' + clientes[i].apellido_paterno + '</td>' +
@@ -188,7 +181,7 @@ export function save()
         rfc:document.getElementById("txtRFCC").value,
         telefono_casa:document.getElementById("txtTelefonoCasaC").value,
         telefono_movil:document.getElementById("txtTelefonoMovilC").value,
-        correo_electronico:document.getElementById("txtCorreoElectronicoC").value,
+        correo_electronico:document.getElementById("txtCorreoElectronicoC").value
         
         
     };
@@ -197,13 +190,13 @@ export function save()
     if (document.getElementById("txtNumeroUnicoCliente").value.trim() === '')
     {
         //generamos un id para el empleado a partir de los milisegundos de la fecha actual
-        cliente.idEmpleado = Date.now();
+        cliente.idClientes = Date.now()+1;
 
         //Generar numero unico
         let letra1 = cliente.apellido_paterno.substring(0, 2);
         let letra2 = cliente.apellido_materno.substring(0, 1);
 
-        cliente.numeroUnicoCliente = letra1 + letra2 + Date.now() + 1;
+        cliente.numeroUnicoCliente = letra1 + letra2 + (Date.now() + 1);
 
         //Insertamos el empleado al final del arreglo
         clientes[clientes.length] = cliente;
