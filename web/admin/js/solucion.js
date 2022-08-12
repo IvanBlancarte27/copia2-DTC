@@ -2,7 +2,7 @@ let soluciones = [
     {
         idProducto: 1,
         idSolucion: 2,
-        numeroUnico:"ABC15268",
+        numeroUnico: "ABC15268",
         nombre: "Gotita feliz",
         marca: "Sin Marca",
         precioCompra: 129.90,
@@ -12,7 +12,7 @@ let soluciones = [
     {
         idProducto: 2,
         idSolucion: 3,
-        numeroUnico:"IBL358",
+        numeroUnico: "IBL358",
         nombre: "LiquidEye",
         marca: "LEYE",
         precioCompra: 5.90,
@@ -22,7 +22,7 @@ let soluciones = [
     {
         idProducto: 3,
         idSolucion: 4,
-        numeroUnico:"KAD258",
+        numeroUnico: "KAD258",
         nombre: "Solution",
         marca: "Fendik",
         precioCompra: 15.90,
@@ -53,8 +53,8 @@ export function fillTable()
                 '<td>' + soluciones[i].precioCompra + '</td>' +
                 '<td>' + soluciones[i].precioVenta + '</td>' +
                 '<td>' + soluciones[i].existencias + '</td>' +
-                '<td><a href="#" onclick="cm.mostrarDetalleSolucion('+
-                                                                    soluciones[i].idSolucion+');">Ver Detalle</a></td>' +
+                '<td><a href="#" onclick="cm.mostrarDetalleSolucion(' +
+                soluciones[i].idSolucion + ');">Ver Detalle</a></td>' +
                 '</tr>';
     }
     document.getElementById('tbodySolucion').innerHTML = contenido;
@@ -86,9 +86,9 @@ export function mostrarDetalleSolucion(idSolucion)
     if (i >= 0)
     {
         //Limpiamos formulario
-        
+
         limpiarFormularioDetalle();
-        
+
         //Llenamos el formulario con los datos de solucion
 
         document.getElementById("txtCodigoSolucion").value = soluciones[i].idSolucion;
@@ -102,9 +102,9 @@ export function mostrarDetalleSolucion(idSolucion)
 
     } else //Se supone que esto nunca debe suceder
         alert('Solucion No encontrado.');
-       
-       //Mostramos el formulario que llenamos previamente
-       setDetalleVisible(true);
+
+    //Mostramos el formulario que llenamos previamente
+    setDetalleVisible(true);
 }
 
 
@@ -127,7 +127,8 @@ export function limpiarFormularioDetalle()
 //con base en el idAccesorio
 function buscarPosicionPorId(id)
 {
-    for (let i = 0;i < soluciones.length; i++)
+    for (let i = 0;
+    i < soluciones.length; i++)
     {
         //Comparamos si el ID del Accesorio en la posicion
         //actual, es igual al id que nos pasan como parametro:
@@ -144,54 +145,52 @@ function buscarPosicionPorId(id)
 
 export function save()
 {
-    
+
     let pos = -1;
-    
+
     let solucion = {
-                        idProducto  : 0,
-                        idSolucion  : 0,
-                        numeroUnico : 0,
-                        nombre      : document.getElementById("txtNombre").value,
-                        marca       : document.getElementById("txtMarca").value,
-                        precioCompra: parseFloat(document.getElementById("txtPrecioCompra").value),
-                        precioVenta : parseFloat(document.getElementById("txtPrecioVenta").value),
-                        existencias : parseFloat(document.getElementById("txtExistencias").value)
-                    };
-                   
-    if (document.getElementById("txtCodigoSolucion").value.trim() === '') 
+        idProducto: 0,
+        idSolucion: 0,
+        numeroUnico: 0,
+        nombre: document.getElementById("txtNombre").value,
+        marca: document.getElementById("txtMarca").value,
+        precioCompra: parseFloat(document.getElementById("txtPrecioCompra").value),
+        precioVenta: parseFloat(document.getElementById("txtPrecioVenta").value),
+        existencias: parseFloat(document.getElementById("txtExistencias").value)
+    };
+
+    if (document.getElementById("txtCodigoSolucion").value.trim() === '')
     {
         solucion.idProducto = Date.now();
         solucion.idSolucion = Date.now() + 1;
         solucion.numeroUnico = '' + Date.now() + 2;
-        
-        soluciones[soluciones.length]= soluciones;
-        
-        document.getElementById("txtCodigoProducto").value=solucion.idProducto;
-        document.getElementById("txtCodigoSolucion").value=solucion.idSolucion;
-        document.getElementById("txtNumeroUnico").value=solucion.numeroUnico;
-        
+
+        soluciones[soluciones.length] = soluciones;
+
+        document.getElementById("txtCodigoProducto").value = solucion.idProducto;
+        document.getElementById("txtCodigoSolucion").value = solucion.idSolucion;
+        document.getElementById("txtNumeroUnico").value = solucion.numeroUnico;
+
         mandarConfirmacionGuardar();
-        
+
         fillTable();
-    }
-    else
+    } else
     {
         soluciones.idProducto = parseInt(document.getElementById("txtCodigoProducto").value);
         soluciones.idSolucion = parseInt(document.getElementById("txtCodigoSolucion").value);
         soluciones.numeroUnico = document.getElementById("txtNumeroUnico").value;
-        
+
         pos = buscarPosicionPorId(soluciones.idSolucion);
-        
-        
-        if (pos >= 0) 
+
+
+        if (pos >= 0)
         {
-            soluciones[pos] = soluciones;
-            
+            soluciones[pos] = solucion;
+
             mandarConfirmacionActualizar();
-            
+
             fillTable();
-        }
-        else
+        } else
         {
             mandarError();
         }
@@ -200,23 +199,54 @@ export function save()
 
 export function remove()
 {
-    let pos = -1;
-    if (document.getElementById("txtCodigoSolucion").value.trim() !== '') {
-        
-        pos = buscarPosicionPorId(parseInt(document.getElementById("txtCodigoSolucion").value));
-        
-        if (pos >= 0){
-            soluciones.splice(pos, 1);
-            
-            mandarConfirmacionEliminar();
-            
-            fillTable();
-            
-            limpiarFormularioDetalle();
-            
-            setDetalleVisible(false);
+    const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+            confirmButton: 'btn btn-success',
+            cancelButton: 'btn btn-danger'
+        },
+        buttonsStyling: false
+    })
+
+    swalWithBootstrapButtons.fire({
+        title: '¿Esta Seguro?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Si, eliminar!',
+        cancelButtonText: 'No, cancelar!',
+        reverseButtons: true
+    }).then((result) => {
+        if (result.isConfirmed) {
+            let pos = -1;
+            if (document.getElementById("txtCodigoSolucion").value.trim() !== '') {
+
+                pos = buscarPosicionPorId(parseInt(document.getElementById("txtCodigoSolucion").value));
+
+                if (pos >= 0) {
+                    soluciones.splice(pos, 1);
+
+                    swalWithBootstrapButtons.fire(
+                            'Eliminado!',
+                            'Se elimino correctamente.',
+                            'success'
+                            )
+
+                    fillTable();
+
+                    limpiarFormularioDetalle();
+
+                    setDetalleVisible(false);
+                }
+            }
+        } else if (
+                result.dismiss === Swal.DismissReason.cancel
+                ) {
+            swalWithBootstrapButtons.fire(
+                    'Cancelado',
+                    '',
+                    'error'
+                    )
         }
-    }
+    })
 }
 
 export function limpiar_y_mostrarDetalle()
