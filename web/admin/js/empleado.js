@@ -291,7 +291,7 @@ export function remove()
                 }
             }
         } else if (
-                /* Read more about handling dismissals below */
+                /*Si se cancela entonces...*/
                 result.dismiss === Swal.DismissReason.cancel
                 ) {
             swalWithBootstrapButtons.fire(
