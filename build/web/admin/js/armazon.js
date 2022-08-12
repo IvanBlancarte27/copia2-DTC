@@ -7,6 +7,7 @@ let armazones = [
         color: "verde",
         descripcion: "blablabla",
         codigoBarras: "",
+        fotografia:"",
         dimenciones: "",
         precioCompra: 129.90,
         precioVenta: 350.00,
@@ -20,7 +21,8 @@ let armazones = [
         modelo: "chichifli",
         color: "verde",
         descripcion: "blablabla",
-        odigoBarras: "",
+        codigoBarras: "",
+        fotografia:"",
         dimenciones: "",
         precioCompra: 129.90,
         precioVenta: 350.00,
@@ -28,13 +30,14 @@ let armazones = [
         estatus: "Activo"
     },
     {
-        idArmazones: 3,
+       idArmazones: 3,
         nombre: "blackcaze",
         marca: "Sin Marca",
         modelo: "chichifli",
         color: "verde",
         descripcion: "blablabla",
-        odigoBarras: "",
+        codigoBarras: "",
+        fotografia:"",
         dimenciones: "",
         precioCompra: 129.90,
         precioVenta: 350.00,
@@ -43,7 +46,7 @@ let armazones = [
     }
 
 ];
-export function inicializar()
+export function inicializarArmazon()
 {
     setDetalleVisible(false);
     fillTable();
@@ -66,6 +69,7 @@ export function fillTable()
                 '<td>' + armazones[i].color + '</td>' +
                 '<td>' + armazones[i].descripcion + '</td>' +
                 '<td>' + armazones[i].codigoBarras + '</td>' +
+                '<td>' + armazones[i].fotografia + '</td>' +
                 '<td>' + armazones[i].dimenciones + '</td>' +
                 '<td>' + armazones[i].precioCompra + '</td>' +
                 '<td>' + armazones[i].precioVenta + '</td>' +
@@ -74,6 +78,7 @@ export function fillTable()
                 '<td><a href="#" onclick="cm.mostrarDetalleArmazon(' +
                 armazones[i].idArmazones + ');">Ver Detalle</a></td>' +
                 '</tr>';
+        
     }
     document.getElementById('tbodyArmazon').innerHTML = contenido;
 }
@@ -110,18 +115,16 @@ export function mostrarDetalleArmazon(idArmazon)
         //Llenamos el formulario con los datos de solucion
 
         //document.getElementById("txtCodigoBarras").value = armazones[i].codigoBarras;
-        document.getElementById("txtNombre").value = armazones[i].nombre;
-        document.getElementById("txtMarca").value = armazones[i].marca;
-        document.getElementById("txtModelo").value = armazones[i].modelo;
-        //document.getElementById("colorAccesorio").value = armazones[i].color;
-        document.getElementById("txtDescripcion").value = armazones[i].descripcion;
-        document.getElementById("txtDimensiones").value = armazones[i].dimenciones;
-        document.getElementById("txtPrecioCompra").value = armazones[i].precioCompra;
-        document.getElementById("txtPrecioVenta").value = armazones[i].precioVenta;
-        document.getElementById("txtExistencias").value = armazones[i].existencias;
-        document.getElementByName("rbtnActivo").value = armazones[i].estatus;
-
-
+        document.getElementById("txtNombreAr").value = armazones[i].nombre;
+        document.getElementById("txtMarcaAr").value = armazones[i].marca;
+        document.getElementById("txtModeloAr").value = armazones[i].modelo;
+        document.getElementById("colorAccesorioAr").value = armazones[i].color;
+        document.getElementById("txtDescripcionAr").value = armazones[i].descripcion;
+        document.getElementById("txtCodigoBarrasAr").value = armazones[i].codigoBarras;
+        document.getElementById("txtDimensionesAr").value = armazones[i].dimenciones;
+        document.getElementById("txtPrecioCompraAr").value = armazones[i].precioCompra;
+        document.getElementById("txtPrecioVentaAr").value = armazones[i].precioVenta;
+        document.getElementById("txtExistenciasAr").value = armazones[i].existencias;
 
     } else //Se supone que esto nunca debe suceder
         alert('Armazon No encontrado.');
@@ -132,16 +135,17 @@ export function mostrarDetalleArmazon(idArmazon)
 
 
 export function limpiarFormularioDetalle()
-
 {
-    document.getElementById("txtCodigoArmazon").value = "";
-    document.getElementById("txtCodigoProducto").value = "";
-    document.getElementById("txtNumeroUnico").value = "";
-    document.getElementById("txtNombre").value = "";
-    document.getElementById("txtMarca").value = "";
-    document.getElementById("txtPrecioCompra").value = "";
-    document.getElementById("txtPrecioVenta").value = "";
-    document.getElementById("txtExistencias").value = "";
+        document.getElementById("txtNombreAr").value = "";
+        document.getElementById("txtMarcaAr").value = "";
+        document.getElementById("txtModeloAr").value = "";
+        document.getElementById("colorAccesorioAr").value = "";
+        document.getElementById("txtDescripcionAr").value = "";
+        document.getElementById("txtCodigoBarrasAr").value = "";
+        document.getElementById("txtDimensionesAr").value = "";
+        document.getElementById("txtPrecioCompraAr").value = "";
+        document.getElementById("txtPrecioVentaAr").value = "";
+        document.getElementById("txtExistenciasAr").value = "";
 }
 
 
@@ -150,12 +154,11 @@ export function limpiarFormularioDetalle()
 //con base en el idAccesorio
 function buscarPosicionPorId(id)
 {
-    for (let i = 0;
-    i < armazones.length; i++)
+    for (let i = 0; i<armazones.length; i++)
     {
         //Comparamos si el ID del Accesorio en la posicion
         //actual, es igual al id que nos pasan como parametro:
-        if (armazones[i].idSolucion === id) {
+        if (armazones[i].idArmazones === id) {
             return i; //Si son iguales, regresamos la posicion
         }
     }
@@ -171,49 +174,42 @@ export function save()
     let pos = -1;
 
     let armazon = {
-        
         idArmazones: 0,
-        nombre: document.getElementById("txtNombre").value,
-        marca: document.getElementById("txtMarca").value,
-        modelo: document.getElementById("txtModelo").value,
-        color:document.getElementById("colorAccesorio").value,
-        descripcion:document.getElementById("txtDescripcion").value,
-        codigoBarras:document.getElementById("txtCodigoBarras").value,
-        dimenciones:document.getElementById("txtDescripcion").value,
-        precioCompra:parseFloat(document.getElementById("txtPrecioCompra")).value,
-        precioVenta: parseFloat(document.getElementById("txtPrecioVenta")).value,
-        existencias: document.getElementById("txtExistencias").value,
-        estatus:document.getElementById("rbtnActivo").value
+        nombre: document.getElementById("txtNombreAr").value,
+        marca: document.getElementById("txtMarcaAr").value,
+        modelo: document.getElementById("txtModeloAr").value,
+        color: document.getElementById("colorAccesorioAr").value,
+        descripcion: document.getElementById("txtDescripcionAr").value,
+        dimenciones: document.getElementById("txtDimensionesAr").value,
+        precioCompra: parseFloat(document.getElementById("txtPrecioCompraAr").value),
+        precioVenta: parseFloat(document.getElementById("txtPrecioVentaAr").value),
+        existencias:parseFloat(document.getElementById("txtExistenciasAr").value)
+        
    
     };
 
     if (document.getElementById("txtCodigoArmazon").value.trim() === '')
     {
-        armazones.idProducto = Date.now();
-        armazones.idArmazon = Date.now() + 1;
-        armazones.numeroUnico = '' + Date.now() + 2;
+   
+        armazon.idArmazon = Date.now();
 
-        armazones[armazones.length] = armazones;
+        armazones[armazones.length] =armazon;
 
-        document.getElementById("txtCodigoProducto").value = armazones.idProducto;
-        document.getElementById("txtCodigoArmazon").value = armazones.idAccesorio;
-        document.getElementById("txtNumeroUnico").value = armazones.numeroUnico;
+        document.getElementById("txtCodigoArmazon").value = armazon.idArmazon;
 
         mandarConfirmacionGuardar();
 
         fillTable();
     } else
     {
-        armazones.idProducto = parseInt(document.getElementById("txtCodigoProducto").value);
-        armazones.idArmazon = parseInt(document.getElementById("txtCodigoArmazon").value);
-        armazones.numeroUnico = document.getElementById("txtNumeroUnico").value;
+        armazon.idArmazon = parseInt(document.getElementById("txtCodigoArmazon").value);
 
-        pos = buscarPosicionPorId(armazones.idSolucion);
+        pos = buscarPosicionPorId(armazon.idArmazon);
 
 
         if (pos >= 0)
         {
-            armazones[pos] = armazones;
+            armazones[pos] = armazon;
 
             mandarConfirmacionActualizar();
 
@@ -227,23 +223,54 @@ export function save()
 
 export function remove()
 {
-    let pos = -1;
-    if (document.getElementById("txtCodigoArmazon").value.trim() !== '') {
+    const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+            confirmButton: 'btn btn-success',
+            cancelButton: 'btn btn-danger'
+        },
+        buttonsStyling: false
+    })
 
-        pos = buscarPosicionPorId(parseInt(document.getElementById("txtCodigoArmazon").value));
+    swalWithBootstrapButtons.fire({
+        title: '¿Esta Seguro?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Si, eliminar!',
+        cancelButtonText: 'No, cancelar!',
+        reverseButtons: true
+    }).then((result) => {
+        if (result.isConfirmed) {
+            let pos = -1;
+            if (document.getElementById("txtCodigoArmazon").value.trim() !== '') {
 
-        if (pos >= 0) {
-            armazones.splice(pos, 1);
+                pos = buscarPosicionPorId(parseInt(document.getElementById("txtCodigoArmazon").value));
 
-            mandarConfirmacionEliminar();
+                if (pos >= 0) {
+                    armazones.splice(pos, 1);
 
-            fillTable();
+                    swalWithBootstrapButtons.fire(
+                            'Eliminado!',
+                            'Se elimino correctamente.',
+                            'success'
+                            )
 
-            limpiarFormularioDetalle();
+                    fillTable();
 
-            setDetalleVisible(false);
+                    limpiarFormularioDetalle();
+
+                    setDetalleVisible(false);
+                }
+            }
+        } else if (
+                result.dismiss === Swal.DismissReason.cancel
+                ) {
+            swalWithBootstrapButtons.fire(
+                    'Cancelado',
+                    '',
+                    'error'
+                    )
         }
-    }
+    })
 }
 
 export function limpiar_y_mostrarDetalle()
@@ -251,4 +278,3 @@ export function limpiar_y_mostrarDetalle()
     limpiarFormularioDetalle();
     setDetalleVisible(true);
 }
-

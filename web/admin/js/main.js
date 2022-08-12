@@ -92,7 +92,7 @@ function cargarModuloArmazon()
         import('./armazon.js') 
                 .then(obj => {
                     cm=obj;
-                    cm.inicializar();
+                    cm.inicializarArmazon();
                     
                 });
              });
