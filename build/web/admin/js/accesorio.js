@@ -2,7 +2,7 @@ let accesorios = [
     {
         idProducto: 1,
         idAccesorio: 2,
-        numeroUnico:"ABC15268",
+        numeroUnico: "ABC15268",
         nombre: "Estuche",
         marca: "Sin Marca",
         precioCompra: 129.90,
@@ -12,7 +12,7 @@ let accesorios = [
     {
         idProducto: 2,
         idAccesorio: 3,
-        numeroUnico:"IBL358",
+        numeroUnico: "IBL358",
         nombre: "Cuerda sujecion",
         marca: "Gukci",
         precioCompra: 5.90,
@@ -22,7 +22,7 @@ let accesorios = [
     {
         idProducto: 3,
         idAccesorio: 4,
-        numeroUnico:"KAD258",
+        numeroUnico: "KAD258",
         nombre: "Paño de microfibra",
         marca: "Fendik",
         precioCompra: 15.90,
@@ -53,8 +53,8 @@ export function fillTable()
                 '<td>' + accesorios[i].precioCompra + '</td>' +
                 '<td>' + accesorios[i].precioVenta + '</td>' +
                 '<td>' + accesorios[i].existencias + '</td>' +
-                '<td><a href="#" onclick="cm.mostrarDetalleAccesorio('+
-                                                                    accesorios[i].idAccesorio+');">Ver Detalle</a></td>' +
+                '<td><a href="#" onclick="cm.mostrarDetalleAccesorio(' +
+                accesorios[i].idAccesorio + ');">Ver Detalle</a></td>' +
                 '</tr>';
     }
     document.getElementById('tbodyAccesorios').innerHTML = contenido;
@@ -86,9 +86,9 @@ export function mostrarDetalleAccesorio(idAccesorio)
     if (i >= 0)
     {
         //Limpiamos formulario
-        
+
         limpiarFormularioDetalle();
-        
+
         //Llenamos el formulario con los datos del accesorio
 
         document.getElementById("txtCodigoAccesorio").value = accesorios[i].idAccesorio;
@@ -102,9 +102,9 @@ export function mostrarDetalleAccesorio(idAccesorio)
 
     } else //Se supone que esto nunca debe suceder
         alert('Accesorio No encontrado.');
-       
-       //Mostramos el formulario que llenamos previamente
-       setDetalleVisible(true);
+
+    //Mostramos el formulario que llenamos previamente
+    setDetalleVisible(true);
 }
 export function limpiarFormularioDetalle()
 {
@@ -122,7 +122,8 @@ export function limpiarFormularioDetalle()
 //con base en el idAccesorio
 function buscarPosicionPorId(id)
 {
-    for (let i = 0;i < accesorios.length; i++)
+    for (let i = 0;
+    i < accesorios.length; i++)
     {
         //Comparamos si el ID del Accesorio en la posicion
         //actual, es igual al id que nos pasan como parametro:
@@ -138,54 +139,52 @@ function buscarPosicionPorId(id)
 }
 export function save()
 {
-    
+
     let pos = -1;
-    
+
     let accesorio = {
-                        idProducto  : 0,
-                        idAccesorio : 0,
-                        numeroUnico : 0,
-                        nombre      : document.getElementById("txtNombre").value,
-                        marca       : document.getElementById("txtMarca").value,
-                        precioCompra: parseFloat(document.getElementById("txtPrecioCompra").value),
-                        precioVenta : parseFloat(document.getElementById("txtPrecioVenta").value),
-                        existencias : parseFloat(document.getElementById("txtExistencias").value)
-                    };
-                   
-    if (document.getElementById("txtCodigoAccesorio").value.trim() === '') 
+        idProducto: 0,
+        idAccesorio: 0,
+        numeroUnico: 0,
+        nombre: document.getElementById("txtNombre").value,
+        marca: document.getElementById("txtMarca").value,
+        precioCompra: parseFloat(document.getElementById("txtPrecioCompra").value),
+        precioVenta: parseFloat(document.getElementById("txtPrecioVenta").value),
+        existencias: parseFloat(document.getElementById("txtExistencias").value)
+    };
+
+    if (document.getElementById("txtCodigoAccesorio").value.trim() === '')
     {
         accesorio.idProducto = Date.now();
         accesorio.idAccesorio = Date.now() + 1;
         accesorio.numeroUnico = '' + Date.now() + 2;
-        
-        accesorios[accesorios.length]= accesorio;
-        
-        document.getElementById("txtCodigoProducto").value=accesorio.idProducto;
-        document.getElementById("txtCodigoAccesorio").value=accesorio.idAccesorio;
-        document.getElementById("txtNumeroUnico").value=accesorio.numeroUnico;
-        
+
+        accesorios[accesorios.length] = accesorio;
+
+        document.getElementById("txtCodigoProducto").value = accesorio.idProducto;
+        document.getElementById("txtCodigoAccesorio").value = accesorio.idAccesorio;
+        document.getElementById("txtNumeroUnico").value = accesorio.numeroUnico;
+
         mandarConfirmacionGuardar();
-        
+
         fillTable();
-    }
-    else
+    } else
     {
         accesorio.idProducto = parseInt(document.getElementById("txtCodigoProducto").value);
         accesorio.idAccesorio = parseInt(document.getElementById("txtCodigoAccesorio").value);
         accesorio.numeroUnico = document.getElementById("txtNumeroUnico").value;
-        
+
         pos = buscarPosicionPorId(accesorio.idAccesorio);
-        
-        
-        if (pos >= 0) 
+
+
+        if (pos >= 0)
         {
             accesorios[pos] = accesorio;
-            
+
             mandarConfirmacionActualizar();
-            
+
             fillTable();
-        }
-        else
+        } else
         {
             mandarError();
         }
@@ -193,26 +192,61 @@ export function save()
 }
 export function remove()
 {
-    let pos = -1;
-    if (document.getElementById("txtCodigoAccesorio").value.trim() !== '') {
-        
-        pos = buscarPosicionPorId(parseInt(document.getElementById("txtCodigoAccesorio").value));
-        
-        if (pos >= 0){
-            accesorios.splice(pos, 1);
-            
-            mandarConfirmacionEliminar();
-            
-            fillTable();
-            
-            limpiarFormularioDetalle();
-            
-            setDetalleVisible(false);
+    const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+            confirmButton: 'btn btn-success',
+            cancelButton: 'btn btn-danger'
+        },
+        buttonsStyling: false
+    })
+
+    swalWithBootstrapButtons.fire({
+        title: '¿Esta Seguro?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Si, eliminar!',
+        cancelButtonText: 'No, cancelar!',
+        reverseButtons: true
+    }).then((result) => {
+        if (result.isConfirmed) {
+            let pos = -1;
+            if (document.getElementById("txtCodigoAccesorio").value.trim() !== '') {
+
+                pos = buscarPosicionPorId(parseInt(document.getElementById("txtCodigoAccesorio").value));
+
+                if (pos >= 0) {
+                    accesorios.splice(pos, 1);
+
+                    swalWithBootstrapButtons.fire(
+                            'Eliminado!',
+                            'Se elimino correctamente.',
+                            'success'
+                            )
+
+                    fillTable();
+
+                    limpiarFormularioDetalle();
+
+                    setDetalleVisible(false);
+                }
+            }
+        } else if (
+                result.dismiss === Swal.DismissReason.cancel
+                ) {
+            swalWithBootstrapButtons.fire(
+                    'Cancelado',
+                    '',
+                    'error'
+                    )
         }
-    }
+    })
 }
+
 export function limpiar_y_mostrarDetalle()
 {
     limpiarFormularioDetalle();
     setDetalleVisible(true);
 }
+
+
+

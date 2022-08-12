@@ -241,31 +241,55 @@ export function save()
 //Eliminar un empleado
 export function remove()
 {
-    let pos = -1;
+    const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+            confirmButton: 'btn btn-success',
+            cancelButton: 'btn btn-danger'
+        },
+        buttonsStyling: false
+    })
+
+    swalWithBootstrapButtons.fire({
+        title: '¿Esta Seguro?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Si, eliminar!',
+        cancelButtonText: 'No, cancelar!',
+        reverseButtons: true
+    }).then((result) => {
+        if (result.isConfirmed) {
+            let pos = -1;
     if (document.getElementById("txtIdCliente").value.trim() !== "")
     {
-        //Buscamos la posición del empleado:
         pos = buscarPosicionPorId(parseInt(document.getElementById("txtIdCliente").value));
         
-        //revisamos que tengamos una posición valida:
         if (pos>=0)
         {
-            //revisamos al empleado en la posición encontrada
             clientes.splice(pos,1);
-            
-            //mostramos un mensaje de notificación al usuario:
-            mandarConfirmacionEliminar();
-            
-            //actualizamos la tabla:
-            fillTable();
-            
-            //limpiamos el formulario:
-            limpiarFormularioDetalle();
-            
-            //mostramos la tabla:
-            setDetalleVisible(false);
+
+                    swalWithBootstrapButtons.fire(
+                            'Eliminado!',
+                            'Se elimino correctamente.',
+                            'success'
+                            )
+
+                    fillTable();
+
+                    limpiarFormularioDetalle();
+
+                    setDetalleVisible(false);
+                }
+            }
+        } else if (
+                result.dismiss === Swal.DismissReason.cancel
+                ) {
+            swalWithBootstrapButtons.fire(
+                    'Cancelado',
+                    '',
+                    'error'
+                    )
         }
-    }
+    })
 }
 
 export function limpiar_y_mostrarDetalle() 
