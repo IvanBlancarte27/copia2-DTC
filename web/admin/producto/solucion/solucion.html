@@ -93,16 +93,19 @@
                                 </div>
                             </div>  
                         </div>
-                        <div class="row">
-                            <div class=" col-12 my-3 text-center">
+                        <div class="row justify-content-md-center">
+                            <div class=" col-12 col-md-4 my-3 text-center">
                                 <div class="row">
-                                    <div>
-                                        
+                                    <div class="col-4">
+                                        <button class="btn btn-primary" onclick="cm.save();"><i class="fas fa-save"></i>&nbsp;&nbsp;Guardar</button>
+                                    </div>
+                                    <div class="col-4">
+                                        <button class="btn btn-danger" onclick="cm.remove();"><i class="fas fa-trash"></i>&nbsp;Eliminar</button>
+                                    </div>
+                                    <div class="col-4">
+                                        <button class="btn btn-success" onclick="cm.limpiarFormularioDetalle(); cm.limpiar_y_mostrarDetalle();"><i class="fas fa-file"></i>&nbsp;&nbsp;Nuevo</button>
                                     </div>
                                 </div>
-                                <button class="btn btn-primary" onclick="cm.save();"><i class="fas fa-save"></i>&nbsp;&nbsp;Guardar</button>
-                                <button class="btn btn-danger mx-3" onclick="cm.remove();"><i class="fas fa-trash"></i>&nbsp;Eliminar</button>
-                                <button class="btn btn-success" onclick="cm.limpiarFormularioDetalle(); cm.limpiar_y_mostrarDetalle();"><i class="fas fa-file"></i>&nbsp;&nbsp;Nuevo</button>
                             </div>
                         </div>                        
                     </div>
