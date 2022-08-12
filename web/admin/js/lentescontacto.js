@@ -3,33 +3,33 @@ let lentes = [
     {
         idLentes: 1,
         nombre: "Lente de contacto blando",
-        marca:"Fendik",
-        modelo:"Hidrogel",
+        marca: "Fendik",
+        modelo: "Hidrogel",
         color: "Pure hazel",
         queratometria: "47,50D",
-        estatus:"Activo",
-        fotografia:""
+        estatus: "Activo",
+        fotografia: ""
     },
     {
         idLentes: 2,
         nombre: "Lente GR",
-        marca:"Optel",
-        modelo:"Gas permeable",
+        marca: "Optel",
+        modelo: "Gas permeable",
         color: "Azul",
         queratometria: "45,30D",
-        estatus:"Activo",
-        fotografia:""
-        
+        estatus: "Activo",
+        fotografia: ""
+
     },
     {
         idLentes: 3,
         nombre: "Lente blando",
-        marca:"Optel",
-        modelo:"PMMA",
+        marca: "Optel",
+        modelo: "PMMA",
         color: "Verde",
         queratometria: "46,70D",
-        estatus:"Inactivo",
-        fotografia:""
+        estatus: "Inactivo",
+        fotografia: ""
     }
 ];
 
@@ -47,7 +47,7 @@ export function fillTable()
     //Declaramos una variable donde se guardara el contenido de la tabla:
     let contenido = '';
     //Recorrer el Arreglo
-    for (let i = 0; i <lentes.length; i++)
+    for (let i = 0; i < lentes.length; i++)
     {
         //Vamos generando el contenido de la tabla dinamicamente:
         contenido = contenido + '<tr>' +
@@ -58,8 +58,8 @@ export function fillTable()
                 '<td>' + lentes[i].queratometria + '</td>' +
                 '<td>' + lentes[i].fotografia + '</td>' +
                 '<td>' + lentes[i].estatus + '</td>' +
-                '<td><a href="#" onclick="cm.mostrarDetalleLentes('+
-                                                                    lentes[i].idLentes+');">Ver Detalle</a></td>' +
+                '<td><a href="#" onclick="cm.mostrarDetalleLentes(' +
+                lentes[i].idLentes + ');">Ver Detalle</a></td>' +
                 '</tr>';
     }
     document.getElementById('tbodyLentesC').innerHTML = contenido;
@@ -91,31 +91,31 @@ export function mostrarDetalleLentes(idLentes)
     if (i >= 0)
     {
         //Limpiamos formulario
-        
+
         limpiarFormularioDetalle();
-        
+
         //Llenamos el formulario con los datos de los Lentes de contacto
 
-        document.getElementById("txtIdLenteC").value= lentes[i].idLentes;
-        document.getElementById("txtNombre").value= lentes[i].nombre;
-        document.getElementById("txtMarca").value= lentes[i].marca;
-        document.getElementById("txtModelo").value= lentes[i].modelo;
-        document.getElementById("txtcolorLenteContacto").value= lentes[i].color;
-        document.getElementById("txtQueratometria").value= lentes[i].queratometria;
-        
-        
-        
+        document.getElementById("txtIdLenteC").value = lentes[i].idLentes;
+        document.getElementById("txtNombre").value = lentes[i].nombre;
+        document.getElementById("txtMarca").value = lentes[i].marca;
+        document.getElementById("txtModelo").value = lentes[i].modelo;
+        document.getElementById("txtcolorLenteContacto").value = lentes[i].color;
+        document.getElementById("txtQueratometria").value = lentes[i].queratometria;
+
+
+
 
     } else //Se supone que esto nunca debe suceder
         alert('Lentes de contacto no encontrado.');
-       
-       //Mostramos el formulario que llenamos previamente
-       setDetalleVisible(true);
+
+    //Mostramos el formulario que llenamos previamente
+    setDetalleVisible(true);
 }
 export function limpiarFormularioDetalle()
 {
-    document.getElementById("txtIdLenteC").value="";
-    document.getElementById("txtNombre").value="";
+    document.getElementById("txtIdLenteC").value = "";
+    document.getElementById("txtNombre").value = "";
     document.getElementById("txtMarca").value = "";
     document.getElementById("txtModelo").value = "";
     document.getElementById("txtcolorLenteContacto").value = "";
@@ -124,7 +124,8 @@ export function limpiarFormularioDetalle()
 //Buscar la posicion de un Empleado dentro del arreglo de empleado con base en el id
 function buscarPosicionPorId(id)
 {
-    for (let i = 0;i < lentes.length; i++)
+    for (let i = 0;
+    i < lentes.length; i++)
     {
         //Comparamos si el ID del Empleado en la posicion
         //actual, es igual al id que nos pasan como parametro:
@@ -145,14 +146,14 @@ export function save()
     let pos = -1;
     //Definimos los atributos y valores del empleado
     let lente = {
-        
-        idLentes:0,
-        nombre:document.getElementById("txtNombre").value,
-        marca:document.getElementById("txtMarca").value,
-        modelo:document.getElementById("txtModelo").value,
-        color:document.getElementById("txtcolorLenteContacto").value,
-        queratometria:document.getElementById("txtQueratometria").value
-         
+
+        idLentes: 0,
+        nombre: document.getElementById("txtNombre").value,
+        marca: document.getElementById("txtMarca").value,
+        modelo: document.getElementById("txtModelo").value,
+        color: document.getElementById("txtcolorLenteContacto").value,
+        queratometria: document.getElementById("txtQueratometria").value
+
     };
     //Revisamos si hay algun valor en la caja de texto del id del empleado:
     //El trin quita espacios a la derecha e izquierda
@@ -160,76 +161,98 @@ export function save()
     {
         //generamos un id para los lentes a partir de los milisegundos de la fecha actual
         lente.idLentes = Date.now();
-        
+
         //Insertamos el empleado al final del arreglo
         lentes[lentes.length] = lente;
 
         //Colocamos los id generados en las cajas de texto para evitar duplicados
-        document.getElementById("txtIdLenteC").value =lente.idLentes;
+        document.getElementById("txtIdLenteC").value = lente.idLentes;
 
         //Mostramos un mensaje al usuario
         mandarConfirmacionGuardar();
-        
+
         //Actualizamos la tabla
         fillTable();
     } else
     {
         //Si el accesorio ya tiene un id, lo tomamos para actualizar sus datos:
         lente.idLentes = parseInt(document.getElementById("txtIdLenteC").value);
-        
+
         //Buscamos la posición del objeto:
         pos = buscarPosicionPorId(lente.idLentes);
-        
+
         //Revisamos que tengamos una posición valida:
-        if (pos >=0)
+        if (pos >= 0)
         {
             //Remplazamos el objeto en la posición encontrada:
             lentes[pos] = lente;
-            
+
             //Mostramos un mensaje al usuario:
             mandarConfirmacionGuardar();
-            
+
             //Actualizamos la tabla
             fillTable();
-        }
-        else
+        } else
         {
             alert("Error: Lente de contacto no Encontrado.");
-        }        
-    }
-}
-
-//Eliminar un empleado
-export function remove()
-{
-    let pos = -1;
-    if (document.getElementById("txtIdLenteC").value.trim() !== "")
-    {
-        //Buscamos la posición del empleado:
-        pos = buscarPosicionPorId(parseInt(document.getElementById("txtIdLenteC").value));
-        
-        //revisamos que tengamos una posición valida:
-        if (pos>=0)
-        {
-            //revisamos al empleado en la posición encontrada
-            lentes.splice(pos,1);
-            
-            //mostramos un mensaje de notificación al usuario:
-            mandarConfirmacionEliminar();
-            
-            //actualizamos la tabla:
-            fillTable();
-            
-            //limpiamos el formulario:
-            limpiarFormularioDetalle();
-            
-            //mostramos la tabla:
-            setDetalleVisible(false);
         }
     }
 }
 
-export function limpiar_y_mostrarDetalle() 
+export function remove()
+{
+    const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+            confirmButton: 'btn btn-success',
+            cancelButton: 'btn btn-danger'
+        },
+        buttonsStyling: false
+    })
+
+    swalWithBootstrapButtons.fire({
+        title: '¿Esta Seguro?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Si, eliminar!',
+        cancelButtonText: 'No, cancelar!',
+        reverseButtons: true
+    }).then((result) => {
+        if (result.isConfirmed) {
+            let pos = -1;
+            if (document.getElementById("txtIdLenteC").value.trim() !== "")
+            {
+                pos = buscarPosicionPorId(parseInt(document.getElementById("txtIdLenteC").value));
+
+                if (pos >= 0)
+                {
+                    lentes.splice(pos, 1);
+
+                    swalWithBootstrapButtons.fire(
+                            'Eliminado!',
+                            'Se elimino correctamente.',
+                            'success'
+                            )
+
+                    fillTable();
+
+                    limpiarFormularioDetalle();
+
+                    setDetalleVisible(false);
+                }
+            }
+        } else if (
+                result.dismiss === Swal.DismissReason.cancel
+                ) {
+            swalWithBootstrapButtons.fire(
+                    'Cancelado',
+                    '',
+                    'error'
+                    )
+        }
+    })
+}
+
+export function limpiar_y_mostrarDetalle()
 {
     limpiarFormularioDetalle();
     setDetalleVisible(true);
