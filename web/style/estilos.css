@@ -1,10 +1,7 @@
 
 .fondoLogin
 {
-    background-image: url(../img/fondo_login.gif);
-    background-size: cover;
-    background-repeat: repeat-y;
-    
+    background-color: #221f4e;
 }
 
 .title
@@ -20,7 +17,7 @@
     background-color: rgba( 195, 219, 223,1);
     border-radius: 15px;
     padding: 5px 60px 5px 60px;
-    margin-top: -55px;
+    margin-top: 10px;
     margin-bottom: 10px;
     z-index: 2;
 }
@@ -152,21 +149,6 @@ hamburguesa
     z-index:1;
 }
 
-#divLogin
-{
-    border: 0.5px solid;    
-    box-shadow: 8px 10px rgba(0,0,0,0.6);
-    border-radius: 25px 25px 10px 10px;
-    background-image: linear-gradient(#04272E,#04272E,#8fd9e1,white);
-    margin-top: 60px;
-    padding-top: 0px;
-    padding-left: 8px;
-    padding-right: 8px;
-    padding-bottom: 20px;    
-    width: 700px;
-    height: 500px;
-}
-
 
 /********************************************************************/
 @media(max-width: 991px)
@@ -175,5 +157,66 @@ hamburguesa
     {
         background-color: rgb(1, 35, 42);
         z-index: 2;
+    }
+
+    .title
+    {
+        border: 1px solid #000;
+        color:white;
+        font-weight: bold;
+        -webkit-text-stroke: 0.9px black;
+        text-shadow: 0 3px 5px black;
+        width: auto;
+        margin: 0 auto;
+        padding-top: -5px;
+        background-color: rgba( 195, 219, 223,1);
+        border-radius: 15px;
+        padding: 3px;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        z-index: 2;
+        font-size: medium;
+    }
+}
+
+@media(max-width:480px)
+{
+    .col-cel
+    {
+        width: 360px;
+        height: 500px;
+        
+    }
+    
+    .title-xsm
+    {
+        border: 1px solid #000;
+        color:white;
+        font-weight: bold;
+        -webkit-text-stroke: 0.9px black;
+        text-shadow: 0 3px 5px black;
+        width: 350px;
+        height: auto;       
+        padding-top: -5px;
+        background-color: #04414d;
+        border-radius: 5px 5px 0 0;
+        border-bottom-style: none;
+        padding: 3px;
+        margin-top: -20px;
+        margin-bottom: 0px;      
+        font-size: 30px;
+    }
+    
+    .card-xsm
+    {
+        width: 350px;
+        height: 450px; 
+        border-top-style: none;
+        border-radius: 0 0 5px 5px;
+    }
+    
+    .card-xsm-header
+    {
+        background-color: #04414d;
     }
 }
