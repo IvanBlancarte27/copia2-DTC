@@ -17,8 +17,8 @@ let lentes = [
         modelo:"Gas permeable",
         color: "Azul",
         queratometria: "45,30D",
-        fotografia:"",
-        estatus:"Activo" 
+        estatus:"Activo",
+        fotografia:""
         
     },
     {
@@ -28,8 +28,8 @@ let lentes = [
         modelo:"PMMA",
         color: "Verde",
         queratometria: "46,70D",
-        fotografia:"",
-        estatus:"Inactivo" 
+        estatus:"Inactivo",
+        fotografia:""
     }
 ];
 
