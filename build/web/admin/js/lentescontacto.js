@@ -152,9 +152,7 @@ export function save()
         modelo:document.getElementById("txtModelo").value,
         color:document.getElementById("txtcolorLenteContacto").value,
         queratometria:document.getElementById("txtQueratometria").value
-        
-        
-        
+         
     };
     //Revisamos si hay algun valor en la caja de texto del id del empleado:
     //El trin quita espacios a la derecha e izquierda
