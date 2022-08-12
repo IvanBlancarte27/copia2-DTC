@@ -255,7 +255,7 @@ export function remove()
                             )
 
                     fillTable();
-
+                    alert(hi);
                     limpiarFormularioDetalle();
 
                     setDetalleVisible(false);
