@@ -1,15 +1,15 @@
 
 .fondoLogin
 {
-    background-color: #221f4e;
+    background-image: url('../img/fondo_login.png');
 }
 
 .title
-{    
+{
     color:white;
     font-weight: bold;
     -webkit-text-stroke: 0.9px black;
-    text-shadow: 0 3px 5px black; 
+    text-shadow: 0 3px 5px black;
     font-size: 30px;
 }
 
@@ -19,6 +19,7 @@
     background-color: rgb(4, 39, 46);
     width: 150px;
     text-align: center;
+    box-shadow: 5px 5px #888888;
 }
 .ingresar:hover
 {
@@ -43,7 +44,7 @@
     background-color: #c3dbdf;
 }
 
-.fondoCardHeaderLogin
+.CardHeaderLogin
 {
     background-color: #04272E;
 }
@@ -94,7 +95,7 @@
 
 .hamburguesa-btn
 {
-    color: #c1dee6;
+    color: #3a7985;
     background-color: rgba(4, 39, 46,0.5);
     border: none;
     font-size: 30px;
@@ -103,12 +104,29 @@
     text-align: center;
     justify-items: center;
     justify-content: center;
+    padding: 2px;
+    margin: 2px;
+}
+
+.hamburguesa-btn:visited,hamburguesa-btn:active
+{
+    color: #3a7985;
+    background-color: rgba(4, 39, 46,0.5);
+    border: none;
+    font-size: 30px;
+    width: 50px;
+    height: content-box;
+    text-align: center;
+    justify-items: center;
+    justify-content: center;
+    padding: 2px;
+    margin: 2px;
+    border: none;
 }
 
 hamburguesa
 {
-    width: 30px;
-    height: content-box;
+    
 }
 .card-hform
 {
@@ -129,22 +147,58 @@ hamburguesa
     z-index:1;
 }
 
+.login
+{
+    margin-top: 50px;
+}
+
+.login-input
+{
+    box-shadow: 5px 5px #888888;
+}
 
 /********************************************************************/
 @media(max-width: 991px)
 {
     #menuPrincipal
     {
-        background-color: rgb(1, 35, 42);
+        background-color: #055160;
         z-index: 2;
     }
-   
+
+    .login
+    {
+        margin-top: 5px;
+    }
 }
 
 @media(max-width:480px)
 {
-    .colresp
+    .login-card
     {
-        
+        height: 500px;
+    }
+
+    .ingresar
+    {
+        color: white;
+        background-color: rgb(4, 39, 46);
+        width: 300px;
+        text-align: center;
+    }
+    
+    .fondoLogin
+    {
+        background-image: url('../img/fondo_movil.png');
+    }
+    
+    .fondoMenu
+    {
+        background-image: url('../img/fondo_movil.png');
+    }
+    
+    .menu-imagen-logo
+    {
+        display: none;
     }
 }
