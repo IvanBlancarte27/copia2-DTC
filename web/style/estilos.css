@@ -51,6 +51,7 @@
 
 .fondoMenu
 {
+    background-color: #04272E;
     background-image: url(../img/fondo_menu.png);
     background-size: cover;
     background-repeat: repeat-y;
