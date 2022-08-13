@@ -1,3 +1,5 @@
+/* global Swal */
+
 let accesorios = [
     {
         idProducto: 1,
@@ -106,6 +108,12 @@ export function mostrarDetalleAccesorio(idAccesorio)
     //Mostramos el formulario que llenamos previamente
     setDetalleVisible(true);
 }
+
+export function cerrarModulo()
+{
+    
+}
+
 export function limpiarFormularioDetalle()
 {
     document.getElementById("txtCodigoAccesorio").value = "";
@@ -198,7 +206,7 @@ export function remove()
             cancelButton: 'btn btn-danger'
         },
         buttonsStyling: false
-    })
+    });
 
     swalWithBootstrapButtons.fire({
         title: '¿Esta Seguro?',
@@ -221,7 +229,7 @@ export function remove()
                             'Eliminado!',
                             'Se elimino correctamente.',
                             'success'
-                            )
+                            );
 
                     fillTable();
 
@@ -237,9 +245,9 @@ export function remove()
                     'Cancelado',
                     '',
                     'error'
-                    )
+                    );
         }
-    })
+    });
 }
 
 export function limpiar_y_mostrarDetalle()
