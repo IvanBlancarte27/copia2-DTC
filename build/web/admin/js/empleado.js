@@ -67,17 +67,9 @@ export function fillTable()
         //Vamos generando el contenido de la tabla dinamicamente:
         contenido = contenido + '<tr>' +
                 '<td>' + empleados[i].nombre + '</td>' +
-                '<td>' + empleados[i].apellido_paterno + '</td>' +
-                '<td>' + empleados[i].apellido_materno + '</td>' +
-                '<td>' + empleados[i].genero + '</td>' +
-                '<td>' + empleados[i].estatus + '</td>' +
-                '<td>' + empleados[i].numeroUnicoEmpleado + '</td>' +
-                '<td>' + empleados[i].rfc + '</td>' +
+                '<td>' + empleados[i].correo_electronico + '</td>' +
                 '<td>' + empleados[i].telefono_casa + '</td>' +
                 '<td>' + empleados[i].telefono_movil + '</td>' +
-                '<td>' + empleados[i].correo_electronico + '</td>' +
-                '<td>' + empleados[i].usuario + '</td>' +
-                '<td>' + empleados[i].contraseña + '</td>' +
                 '<td><a href="#" onclick="cm.mostrarDetalleEmpleado('+
                                                                     empleados[i].idEmpleado+');">Ver Detalle</a></td>' +
                 '</tr>';

@@ -61,16 +61,9 @@ export function fillTable()
 
         contenido = contenido + '<tr>'+
                 '<td>' + clientes[i].nombre +'</td>' +
-                '<td>' + clientes[i].apellido_paterno + '</td>' +
-                '<td>' + clientes[i].apellido_materno + '</td>' +
-                '<td>' + clientes[i].genero + '</td>' +
-                '<td>' + clientes[i].estatus + '</td>'+
-                '<td>' + clientes[i].numeroUnicoCliente + '</td>' +
-                '<td>' + clientes[i].rfc + '</td>' +
+                '<td>' + clientes[i].correo_electronico + '</td>' +
                 '<td>' + clientes[i].telefono_casa + '</td>' +
                 '<td>' + clientes[i].telefono_movil + '</td>' +
-                '<td>' + clientes[i].correo_electronico + '</td>' +
-                
                 '<td><a href="#" onclick="cm.mostrarDetalleCliente('+
                                                                     clientes[i].idClientes+');">Ver Detalle</a></td>' +
                 '</tr>';

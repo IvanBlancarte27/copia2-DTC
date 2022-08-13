@@ -65,16 +65,9 @@ export function fillTable()
         contenido = contenido + '<tr>' +
                 '<td>' + armazones[i].nombre + '</td>' +
                 '<td>' + armazones[i].marca + '</td>' +
-                '<td>' + armazones[i].modelo + '</td>' +
-                '<td>' + armazones[i].color + '</td>' +
-                '<td>' + armazones[i].descripcion + '</td>' +
-                '<td>' + armazones[i].codigoBarras + '</td>' +
-                '<td>' + armazones[i].fotografia + '</td>' +
-                '<td>' + armazones[i].dimenciones + '</td>' +
                 '<td>' + armazones[i].precioCompra + '</td>' +
                 '<td>' + armazones[i].precioVenta + '</td>' +
                 '<td>' + armazones[i].existencias + '</td>' +
-                '<td>' + armazones[i].estatus + '</td>' +
                 '<td><a href="#" onclick="cm.mostrarDetalleArmazon(' +
                 armazones[i].idArmazones + ');">Ver Detalle</a></td>' +
                 '</tr>';
