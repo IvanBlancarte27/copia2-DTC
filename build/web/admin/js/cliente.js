@@ -192,7 +192,7 @@ export function save()
         cliente.numeroUnicoCliente = letra1 + letra2 + (Date.now() + 1);
 
         //Insertamos el empleado al final del arreglo
-        clientes[clientes.length] = cliente;
+        clientes[clientes.length] =cliente;
 
         //Colocamos los id generados en las cajas de texto para evitar duplicados
         document.getElementById("txtNumeroUnicoCliente").value = cliente.numeroUnicoCliente;
