@@ -1,4 +1,4 @@
-/* global Swal */
+/* global Swal, fetch */
 
 let soluciones = [
     {
@@ -167,7 +167,7 @@ export function save()
         solucion.idSolucion = Date.now() + 1;
         solucion.numeroUnicoSolucion = '' + Date.now() + 2;
 
-        soluciones[soluciones.length] = soluciones;
+        soluciones[soluciones.length] = solucion;
 
         document.getElementById("txtCodigoProducto").value = solucion.idProducto;
         document.getElementById("txtCodigoSolucion").value = solucion.idSolucion;

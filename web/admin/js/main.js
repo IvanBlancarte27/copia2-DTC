@@ -138,12 +138,5 @@ fetch('producto/lente/lentesdecontacto.html')
 
 function cerrarModulo()
 {
-    fetch('../index.html')
-        .then(respuesta => {
-
-        //Devolvemos el contenido
-        //de la respuesta en formato
-        //texto:
-        return respuesta.text();
-        })
+     window.location.replace('./index.html');    
 }

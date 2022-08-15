@@ -1,4 +1,4 @@
-/* global Swal */
+/* global Swal, fetch */
 
 let accesorios = [
     {
@@ -109,10 +109,6 @@ export function mostrarDetalleAccesorio(idAccesorio)
     setDetalleVisible(true);
 }
 
-export function cerrarModulo()
-{
-    
-}
 
 export function limpiarFormularioDetalle()
 {
