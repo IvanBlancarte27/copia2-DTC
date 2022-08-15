@@ -228,7 +228,7 @@ export function save()
         }
         else
         {
-            alert("Error: Empleado no Encontrado.");
+            mandarError();
         }        
     }
 }

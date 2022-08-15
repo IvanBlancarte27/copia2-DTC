@@ -1,8 +1,10 @@
+/* global Swal */
+
 let soluciones = [
     {
         idProducto: 1,
         idSolucion: 2,
-        numeroUnico: "ABC15268",
+        numeroUnicoSolucion: "ABC15268",
         nombre: "Gotita feliz",
         marca: "Sin Marca",
         precioCompra: 129.90,
@@ -12,7 +14,7 @@ let soluciones = [
     {
         idProducto: 2,
         idSolucion: 3,
-        numeroUnico: "IBL358",
+        numeroUnicoSolucion: "IBL358",
         nombre: "LiquidEye",
         marca: "LEYE",
         precioCompra: 5.90,
@@ -22,7 +24,7 @@ let soluciones = [
     {
         idProducto: 3,
         idSolucion: 4,
-        numeroUnico: "KAD258",
+        numeroUnicoSolucion: "KAD258",
         nombre: "Solution",
         marca: "Fendik",
         precioCompra: 15.90,
@@ -93,7 +95,7 @@ export function mostrarDetalleSolucion(idSolucion)
 
         document.getElementById("txtCodigoSolucion").value = soluciones[i].idSolucion;
         document.getElementById("txtCodigoProducto").value = soluciones[i].idSolucion;
-        document.getElementById("txtNumeroUnico").value = soluciones[i].numeroUnico;
+        document.getElementById("txtNumeroUnicoSolucion").value = soluciones[i].numeroUnicoSolucion;
         document.getElementById("txtNombre").value = soluciones[i].nombre;
         document.getElementById("txtMarca").value = soluciones[i].marca;
         document.getElementById("txtPrecioCompra").value = soluciones[i].precioCompra;
@@ -113,7 +115,7 @@ export function limpiarFormularioDetalle()
 {
     document.getElementById("txtCodigoSolucion").value = "";
     document.getElementById("txtCodigoProducto").value = "";
-    document.getElementById("txtNumeroUnico").value = "";
+    document.getElementById("txtNumeroUnicoSolucion").value = "";
     document.getElementById("txtNombre").value = "";
     document.getElementById("txtMarca").value = "";
     document.getElementById("txtPrecioCompra").value = "";
@@ -151,7 +153,7 @@ export function save()
     let solucion = {
         idProducto: 0,
         idSolucion: 0,
-        numeroUnico: 0,
+        numeroUnicoSolucion: 0,
         nombre: document.getElementById("txtNombre").value,
         marca: document.getElementById("txtMarca").value,
         precioCompra: parseFloat(document.getElementById("txtPrecioCompra").value),
@@ -163,24 +165,24 @@ export function save()
     {
         solucion.idProducto = Date.now();
         solucion.idSolucion = Date.now() + 1;
-        solucion.numeroUnico = '' + Date.now() + 2;
+        solucion.numeroUnicoSolucion = '' + Date.now() + 2;
 
         soluciones[soluciones.length] = soluciones;
 
         document.getElementById("txtCodigoProducto").value = solucion.idProducto;
         document.getElementById("txtCodigoSolucion").value = solucion.idSolucion;
-        document.getElementById("txtNumeroUnico").value = solucion.numeroUnico;
+        document.getElementById("txtNumeroUnicoSolucion").value = solucion.numeroUnicoSolucion;
 
         mandarConfirmacionGuardar();
 
         fillTable();
     } else
     {
-        soluciones.idProducto = parseInt(document.getElementById("txtCodigoProducto").value);
-        soluciones.idSolucion = parseInt(document.getElementById("txtCodigoSolucion").value);
-        soluciones.numeroUnico = document.getElementById("txtNumeroUnico").value;
+        solucion.idProducto = parseInt(document.getElementById("txtCodigoProducto").value);
+        solucion.idSolucion = parseInt(document.getElementById("txtCodigoSolucion").value);
+        solucion.numeroUnicoSolucion = document.getElementById("txtNumeroUnicoSolucion").value;
 
-        pos = buscarPosicionPorId(soluciones.idSolucion);
+        pos = buscarPosicionPorId(solucion.idSolucion);
 
 
         if (pos >= 0)
@@ -190,7 +192,9 @@ export function save()
             mandarConfirmacionActualizar();
 
             fillTable();
-        } else
+
+        } 
+        else
         {
             mandarError();
         }
@@ -205,7 +209,7 @@ export function remove()
             cancelButton: 'btn btn-danger'
         },
         buttonsStyling: false
-    })
+    });
 
     swalWithBootstrapButtons.fire({
         title: '¿Esta Seguro?',
@@ -228,7 +232,7 @@ export function remove()
                             'Eliminado!',
                             'Se elimino correctamente.',
                             'success'
-                            )
+                            );
 
                     fillTable();
 
@@ -244,9 +248,9 @@ export function remove()
                     'Cancelado',
                     '',
                     'error'
-                    )
+                    );
         }
-    })
+    });
 }
 
 export function limpiar_y_mostrarDetalle()
