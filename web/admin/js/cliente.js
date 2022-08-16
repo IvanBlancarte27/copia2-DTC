@@ -107,8 +107,7 @@ export function mostrarDetalleCliente(idClientes)
         document.getElementById("txtApellidoPaternoC").value = clientes[i].apellido_paterno;
         document.getElementById("txtApellidoMaternoC").value = clientes[i].apellido_materno;
         document.getElementById("txtCorreoElectronicoC").value = clientes[i].correo_electronico;
-        document.getElementsByName("txtGeneroC").value = clientes[i].genero;
-        document.getElementsByName("rbtnEstatus").value = clientes[i].estatus;
+        document.getElementById("txtGeneroC").value = clientes[i].genero;        
         document.getElementById("txtTelefonoCasaC").value = clientes[i].telefono_casa;
         document.getElementById("txtTelefonoMovilC").value = clientes[i].telefono_movil;
         document.getElementById("txtRFCC").value=clientes[i].rfc;
@@ -130,8 +129,7 @@ export function limpiarFormularioDetalle()
         document.getElementById("txtApellidoPaternoC").value ="";
         document.getElementById("txtApellidoMaternoC").value ="";
         document.getElementById("txtCorreoElectronicoC").value ="";
-        document.getElementsByName("txtGeneroC").value ="";
-        document.getElementsByName("rbtnEstatus").value ="";
+        document.getElementById("txtGeneroC").value ="";        
         document.getElementById("txtTelefonoCasaC").value ="";
         document.getElementById("txtTelefonoMovilC").value ="";
         document.getElementById("txtRFCC").value="";
@@ -169,8 +167,7 @@ export function save()
         nombre:document.getElementById("txtNombreC").value,
         apellido_paterno:document.getElementById("txtApellidoPaternoC").value,
         apellido_materno:document.getElementById("txtApellidoMaternoC").value,
-        genero:document.getElementsByName("txtGeneroC").value,
-        estatus:document.getElementsByName("rbtnEstatus").value,
+        genero:document.getElementById("txtGeneroC").value,        
         rfc:document.getElementById("txtRFCC").value,
         telefono_casa:document.getElementById("txtTelefonoCasaC").value,
         telefono_movil:document.getElementById("txtTelefonoMovilC").value,
@@ -219,7 +216,7 @@ export function save()
             clientes[pos] = cliente;
             
             //Mostramos un mensaje al usuario:
-            mandarConfirmacionGuardar();
+            mandarConfirmacionActualizar();
             
             //Actualizamos la tabla
             fillTable();

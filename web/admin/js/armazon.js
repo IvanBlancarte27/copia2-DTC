@@ -186,7 +186,7 @@ export function save()
 
     if (document.getElementById("txtCodigoBarrasAr").value.trim() === '')
     {
-        armazon.idArmazon = Date.now()+ 1;
+        armazon.idArmazones = Date.now()+ 1;
         
         let letra1 = "O";
         let letra2 = "Q-";
@@ -195,7 +195,7 @@ export function save()
 
         armazones[armazones.length] =armazon;
 
-        document.getElementById("txtCodigoArmazon").value = armazon.idArmazon;
+        document.getElementById("txtCodigoArmazon").value = armazon.idArmazones;
         document.getElementById("txtCodigoBarrasAr").value = armazon.codigoBarras;
 
         mandarConfirmacionGuardar();
@@ -203,10 +203,10 @@ export function save()
         fillTable();
     } else
     {
-        armazon.idArmazon=parseInt(document.getElementById("txtCodigoArmazon").value);
+        armazon.idArmazones=parseInt(document.getElementById("txtCodigoArmazon").value);
         armazon.codigoBarras=document.getElementById("txtCodigoBarrasAr").value;
 
-        pos = buscarPosicionPorId(armazon.idArmazon);
+        pos = buscarPosicionPorId(armazon.idArmazones);
 
         if (pos >= 0)
         {
@@ -217,7 +217,7 @@ export function save()
             fillTable();
         } else
         {
-           alert("Error: Armazon no Encontrado.");
+            mandarError();
         }
     }
 }
@@ -253,7 +253,7 @@ export function remove()
                             'Eliminado!',
                             'Se elimino correctamente.',
                             'success'
-                            )
+                            );
 
                     fillTable();
 
@@ -269,9 +269,9 @@ export function remove()
                     'Cancelado',
                     '',
                     'error'
-                    )
+                    );
         }
-    })
+    });
 }
 
 export function limpiar_y_mostrarDetalle()
