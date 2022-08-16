@@ -108,6 +108,7 @@ export function mostrarDetalleLentes(idLentes)
         //Llenamos el formulario con los datos de los Lentes de contacto
 
         document.getElementById("txtIdLenteC").value = lentes[i].idLentes;
+        document.getElementById("txtCodigoBarrasL").value = lentes[i].codigoBarra;
         document.getElementById("txtNombre").value = lentes[i].nombre;
         document.getElementById("txtMarca").value = lentes[i].marca;
         document.getElementById("txtModelo").value = lentes[i].modelo;
@@ -139,6 +140,7 @@ export function limpiarFormularioDetalle()
     document.getElementById("txtPrecioCompraL").value = "";
     document.getElementById("txtPrecioVentaL").value = "";
     document.getElementById("txtExistenciasL").value = "";
+    document.getElementById("selTipoL").value = "Tipo lente";
 }
 //Buscar la posicion de un Empleado dentro del arreglo de empleado con base en el id
 function buscarPosicionPorId(id)
