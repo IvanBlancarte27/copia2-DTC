@@ -2,32 +2,44 @@
 let lentes = [
     {
         idLentes: 1,
+        codigoBarra: 1,
         nombre: "Lente de contacto blando",
         marca: "Fendik",
         modelo: "Hidrogel",
         color: "Pure hazel",
         queratometria: "47,50D",
+        precioCompra: 129.90,
+        precioVenta: 350.00,
+        existencias: 15,
         estatus: "Activo",
         fotografia: ""
     },
     {
         idLentes: 2,
+        codigoBarra: 2,
         nombre: "Lente GR",
         marca: "Optel",
         modelo: "Gas permeable",
         color: "Azul",
         queratometria: "45,30D",
+        precioCompra: 129.90,
+        precioVenta: 350.00,
+        existencias: 15,
         estatus: "Activo",
         fotografia: ""
 
     },
     {
         idLentes: 3,
+        codigoBarra: 2,
         nombre: "Lente blando",
         marca: "Optel",
         modelo: "PMMA",
         color: "Verde",
         queratometria: "46,70D",
+        precioCompra: 129.90,
+        precioVenta: 350.00,
+        existencias: 15,
         estatus: "Inactivo",
         fotografia: ""
     }
@@ -54,10 +66,9 @@ export function fillTable()
                 '<td>' + lentes[i].nombre + '</td>' +
                 '<td>' + lentes[i].marca + '</td>' +
                 '<td>' + lentes[i].modelo + '</td>' +
-                '<td>' + lentes[i].color + '</td>' +
-                '<td>' + lentes[i].queratometria + '</td>' +
-                '<td>' + lentes[i].fotografia + '</td>' +
-                '<td>' + lentes[i].estatus + '</td>' +
+                '<td>' + lentes[i].precioCompra + '</td>' +
+                '<td>' + lentes[i].precioVenta + '</td>' +
+                '<td>' + lentes[i].existencias + '</td>' +
                 '<td><a href="#" onclick="cm.mostrarDetalleLentes(' +
                 lentes[i].idLentes + ');">Ver Detalle</a></td>' +
                 '</tr>';
@@ -102,6 +113,10 @@ export function mostrarDetalleLentes(idLentes)
         document.getElementById("txtModelo").value = lentes[i].modelo;
         document.getElementById("txtcolorLenteContacto").value = lentes[i].color;
         document.getElementById("txtQueratometria").value = lentes[i].queratometria;
+        document.getElementById("txtPrecioCompraL").value = lentes[i].precioCompra;
+        document.getElementById("txtPrecioVentaL").value = lentes[i].precioVenta;
+        document.getElementById("txtExistenciasL").value = lentes[i].existencias;
+
 
 
 
@@ -115,11 +130,15 @@ export function mostrarDetalleLentes(idLentes)
 export function limpiarFormularioDetalle()
 {
     document.getElementById("txtIdLenteC").value = "";
+    document.getElementById("txtCodigoBarrasL").value = "";
     document.getElementById("txtNombre").value = "";
     document.getElementById("txtMarca").value = "";
     document.getElementById("txtModelo").value = "";
     document.getElementById("txtcolorLenteContacto").value = "";
     document.getElementById("txtQueratometria").value = "";
+    document.getElementById("txtPrecioCompraL").value = "";
+    document.getElementById("txtPrecioVentaL").value = "";
+    document.getElementById("txtExistenciasL").value = "";
 }
 //Buscar la posicion de un Empleado dentro del arreglo de empleado con base en el id
 function buscarPosicionPorId(id)
@@ -148,11 +167,15 @@ export function save()
     let lente = {
 
         idLentes: 0,
+        codigoBarra:0,
         nombre: document.getElementById("txtNombre").value,
         marca: document.getElementById("txtMarca").value,
         modelo: document.getElementById("txtModelo").value,
         color: document.getElementById("txtcolorLenteContacto").value,
-        queratometria: document.getElementById("txtQueratometria").value
+        queratometria: document.getElementById("txtQueratometria").value,
+        precioCompra: parseFloat(document.getElementById("txtPrecioCompraL").value),
+        precioVenta: parseFloat(document.getElementById("txtPrecioVentaL").value),
+        existencias: parseFloat(document.getElementById("txtExistenciasL").value)
 
     };
     //Revisamos si hay algun valor en la caja de texto del id del empleado:
@@ -161,12 +184,14 @@ export function save()
     {
         //generamos un id para los lentes a partir de los milisegundos de la fecha actual
         lente.idLentes = Date.now();
+        lente.codigoBarra = Date.now()+1;
 
         //Insertamos el empleado al final del arreglo
         lentes[lentes.length] = lente;
 
         //Colocamos los id generados en las cajas de texto para evitar duplicados
         document.getElementById("txtIdLenteC").value = lente.idLentes;
+        document.getElementById("txtCodigoBarrasL").value= lente.codigoBarra;
 
         //Mostramos un mensaje al usuario
         mandarConfirmacionGuardar();
