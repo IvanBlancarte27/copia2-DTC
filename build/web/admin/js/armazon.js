@@ -1,6 +1,7 @@
 let armazones = [
     {
         idArmazones: 1,
+        idProducto: 1,
         nombre: "blackcaze",
         marca: "Sin Marca",
         modelo: "chichifli",
@@ -16,6 +17,7 @@ let armazones = [
     },
     {
         idArmazones: 2,
+        idProducto:2,
         nombre: "blackcaze",
         marca: "Sin Marca",
         modelo: "chichifli",
@@ -31,6 +33,7 @@ let armazones = [
     },
     {
         idArmazones: 3,
+        idProduto: 3,
         nombre: "blackcaze",
         marca: "Sin Marca",
         modelo: "chichifli",
@@ -75,7 +78,7 @@ export function fillTable()
     }
     document.getElementById('tbodyArmazon').innerHTML = contenido;
 }
-//Muestra y oculta el detalle del Accesorio
+//Muestra y oculta el detalle del Armazón
 export function setDetalleVisible(valor)
 {
     //El tripe igual es para comparar valores
@@ -95,7 +98,7 @@ export function mostrarDetalleArmazon(idArmazones)
 {
     let i = -1;
 
-    //Buscamos la posicion de solucion
+    //Buscamos la posicion del armazón
     i = buscarPosicionPorId(idArmazones);
 
     //Revisamos que sea una posicion valida
@@ -105,7 +108,7 @@ export function mostrarDetalleArmazon(idArmazones)
 
         limpiarFormularioDetalle();
 
-        //Llenamos el formulario con los datos de solucion
+        //Llenamos el formulario con los datos de armazón
 
         document.getElementById("txtNombreAr").value = armazones[i].nombre;
         document.getElementById("txtMarcaAr").value = armazones[i].marca;
@@ -118,8 +121,10 @@ export function mostrarDetalleArmazon(idArmazones)
         document.getElementById("txtPrecioVentaAr").value = armazones[i].precioVenta;
         document.getElementById("txtExistenciasAr").value = armazones[i].existencias;
         document.getElementById("txtCodigoArmazon").value=armazones[i].idArmazones;
+        document.getElementById("txtCodigoProducto").value=armazones[i].idProducto;
+        
 
-    } else //Se supone que esto nunca debe suceder
+    } else 
         alert('Armazon No encontrado.');
 
     //Mostramos el formulario que llenamos previamente
@@ -140,17 +145,18 @@ export function limpiarFormularioDetalle()
     document.getElementById("txtPrecioVentaAr").value = "";
     document.getElementById("txtExistenciasAr").value = "";
     document.getElementById("txtCodigoArmazon").value = "";
+    document.getElementById("txtCodigoProducto").value = "";
 }
 
 
-//Buscar la posicion de un Accesorio
-//dentro del arreglo de soluciones
-//con base en el idAccesorio
+//Buscar la posicion de un Armazón
+//dentro del arreglo de armazones
+//con base en el idArmazon
 function buscarPosicionPorId(id)
 {
     for (let i = 0;i <armazones.length; i++)
     {
-        //Comparamos si el ID del Accesorio en la posicion
+        //Comparamos si el ID del Armazón en la posicion
         //actual, es igual al id que nos pasan como parametro:
         if (armazones[i].idArmazones === id) {
             return i; //Si son iguales, regresamos la posicion
@@ -170,6 +176,7 @@ export function save()
     let armazon = {
 
         idArmazones: 0,
+        idProducto: 0,
         codigoBarras: 0,
         nombre: document.getElementById("txtNombreAr").value,
         marca: document.getElementById("txtMarcaAr").value,
@@ -187,16 +194,18 @@ export function save()
     if (document.getElementById("txtCodigoBarrasAr").value.trim() === '')
     {
         armazon.idArmazones = Date.now()+ 1;
+        armazon.idProducto = Date.now()+ 1;
         
-        let letra1 = "O";
-        let letra2 = "Q-";
+        let letra1 = "OQ-";
 
-        armazon.codigoBarras = letra1 + letra2 + (Date.now() + 1);
+        armazon.codigoBarras = letra1 + (Date.now() + 1);
 
         armazones[armazones.length] =armazon;
 
         document.getElementById("txtCodigoArmazon").value = armazon.idArmazones;
         document.getElementById("txtCodigoBarrasAr").value = armazon.codigoBarras;
+        document.getElementById("txtCodigoProducto").value = armazon.idProducto;
+        
 
         mandarConfirmacionGuardar();
 
@@ -204,6 +213,7 @@ export function save()
     } else
     {
         armazon.idArmazones=parseInt(document.getElementById("txtCodigoArmazon").value);
+        armazon.idProducto=parseInt(document.getElementById("txtCodigoProducto").value);
         armazon.codigoBarras=document.getElementById("txtCodigoBarrasAr").value;
 
         pos = buscarPosicionPorId(armazon.idArmazones);
@@ -251,7 +261,7 @@ export function remove()
 
                     swalWithBootstrapButtons.fire(
                             'Eliminado!',
-                            'Se elimino correctamente.',
+                            'Se eliminó correctamente.',
                             'success'
                             );
 

@@ -47,8 +47,6 @@ let empleados = [
     }
 ];
 
-//Corrección 
-
 export function inicializarEmpleado()
 {
     setDetalleVisible(false);
@@ -96,7 +94,7 @@ export function mostrarDetalleEmpleado(idEmpleado)
 {
     let i = -1;
 
-    //Buscamos la posicion del accesorio
+    //Buscamos la posicion del empleado
     i = buscarPosicionPorId(idEmpleado);
 
     //Revisamos que sea una posicion valida
@@ -106,7 +104,7 @@ export function mostrarDetalleEmpleado(idEmpleado)
         
         limpiarFormularioDetalle();
         
-        //Llenamos el formulario con los datos del accesorio
+        //Llenamos el formulario con los datos del empleado
 
         document.getElementById("txtNumeroUnicoEmpleado").value= empleados[i].numeroUnicoEmpleado;
         document.getElementById("txtIdEmpleado").value=empleados[i].idEmpleado;
@@ -122,7 +120,7 @@ export function mostrarDetalleEmpleado(idEmpleado)
         document.getElementById("txtUsuario").value = empleados[i].usuario;
         document.getElementById("pwdContraseña").value = empleados[i].contraseña;
 
-    } else //Se supone que esto nunca debe suceder
+    } else 
         alert('Empleado No encontrado.');
        
        //Mostramos el formulario que llenamos previamente
@@ -181,7 +179,7 @@ export function save()
         contraseña: document.getElementById("pwdContraseña").value
     };
     //Revisamos si hay algun valor en la caja de texto del id del empleado:
-    //El trin quita espacios a la derecha e izquierda
+    //El trim quita espacios a la derecha e izquierda
     if (document.getElementById("txtNumeroUnicoEmpleado").value.trim() === '')
     {
         //generamos un id para el empleado a partir de los milisegundos de la fecha actual
@@ -268,7 +266,7 @@ export function remove()
                     //mostramos un mensaje de notificación al usuario:
                     swalWithBootstrapButtons.fire(
                             'Eliminado!',
-                            'Se elimino correctamente.',
+                            'Se eliminó correctamente.',
                             'success'
                             )
 

@@ -225,7 +225,7 @@ export function remove()
 
                     swalWithBootstrapButtons.fire(
                             'Eliminado!',
-                            'Se elimino correctamente.',
+                            'Se eliminó correctamente.',
                             'success'
                             );
 
