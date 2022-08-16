@@ -2,6 +2,7 @@
 .fondoLogin
 {
     background-image: url('../img/fondo_login.png');
+    background-size: cover;
 }
 
 .title

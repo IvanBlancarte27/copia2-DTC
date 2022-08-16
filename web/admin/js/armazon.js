@@ -230,7 +230,7 @@ export function remove()
             cancelButton: 'btn btn-danger'
         },
         buttonsStyling: false
-    })
+    });
 
     swalWithBootstrapButtons.fire({
         title: '¿Esta Seguro?',

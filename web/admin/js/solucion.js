@@ -94,8 +94,7 @@ export function mostrarDetalleSolucion(idSolucion)
         //Llenamos el formulario con los datos de solucion
 
         document.getElementById("txtCodigoSolucion").value = soluciones[i].idSolucion;
-        document.getElementById("txtCodigoProducto").value = soluciones[i].idSolucion;
-        document.getElementById("txtNumeroUnicoSolucion").value = soluciones[i].numeroUnicoSolucion;
+        document.getElementById("txtCodigoProducto").value = soluciones[i].idSolucion;        
         document.getElementById("txtNombre").value = soluciones[i].nombre;
         document.getElementById("txtMarca").value = soluciones[i].marca;
         document.getElementById("txtPrecioCompra").value = soluciones[i].precioCompra;
@@ -114,8 +113,7 @@ export function limpiarFormularioDetalle()
 
 {
     document.getElementById("txtCodigoSolucion").value = "";
-    document.getElementById("txtCodigoProducto").value = "";
-    document.getElementById("txtNumeroUnicoSolucion").value = "";
+    document.getElementById("txtCodigoProducto").value = "";   
     document.getElementById("txtNombre").value = "";
     document.getElementById("txtMarca").value = "";
     document.getElementById("txtPrecioCompra").value = "";
@@ -164,14 +162,12 @@ export function save()
     if (document.getElementById("txtCodigoSolucion").value.trim() === '')
     {
         solucion.idProducto = Date.now();
-        solucion.idSolucion = Date.now() + 1;
-        solucion.numeroUnicoSolucion = '' + Date.now() + 2;
+        solucion.idSolucion = Date.now() + 1;        
 
         soluciones[soluciones.length] = solucion;
 
         document.getElementById("txtCodigoProducto").value = solucion.idProducto;
-        document.getElementById("txtCodigoSolucion").value = solucion.idSolucion;
-        document.getElementById("txtNumeroUnicoSolucion").value = solucion.numeroUnicoSolucion;
+        document.getElementById("txtCodigoSolucion").value = solucion.idSolucion;        
 
         mandarConfirmacionGuardar();
 
@@ -179,8 +175,7 @@ export function save()
     } else
     {
         solucion.idProducto = parseInt(document.getElementById("txtCodigoProducto").value);
-        solucion.idSolucion = parseInt(document.getElementById("txtCodigoSolucion").value);
-        solucion.numeroUnicoSolucion = document.getElementById("txtNumeroUnicoSolucion").value;
+        solucion.idSolucion = parseInt(document.getElementById("txtCodigoSolucion").value);        
 
         pos = buscarPosicionPorId(solucion.idSolucion);
 

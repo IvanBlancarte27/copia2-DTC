@@ -94,8 +94,7 @@ export function mostrarDetalleAccesorio(idAccesorio)
         //Llenamos el formulario con los datos del accesorio
 
         document.getElementById("txtCodigoAccesorio").value = accesorios[i].idAccesorio;
-        document.getElementById("txtCodigoProducto").value = accesorios[i].idAccesorio;
-        document.getElementById("txtNumeroUnico").value = accesorios[i].numeroUnico;
+        document.getElementById("txtCodigoProducto").value = accesorios[i].idAccesorio;        
         document.getElementById("txtNombre").value = accesorios[i].nombre;
         document.getElementById("txtMarca").value = accesorios[i].marca;
         document.getElementById("txtPrecioCompra").value = accesorios[i].precioCompra;
@@ -113,8 +112,7 @@ export function mostrarDetalleAccesorio(idAccesorio)
 export function limpiarFormularioDetalle()
 {
     document.getElementById("txtCodigoAccesorio").value = "";
-    document.getElementById("txtCodigoProducto").value = "";
-    document.getElementById("txtNumeroUnico").value = "";
+    document.getElementById("txtCodigoProducto").value = "";    
     document.getElementById("txtNombre").value = "";
     document.getElementById("txtMarca").value = "";
     document.getElementById("txtPrecioCompra").value = "";
@@ -161,13 +159,13 @@ export function save()
     {
         accesorio.idProducto = Date.now();
         accesorio.idAccesorio = Date.now() + 1;
-        accesorio.numeroUnico = '' + Date.now() + 2;
+        
 
         accesorios[accesorios.length] = accesorio;
 
         document.getElementById("txtCodigoProducto").value = accesorio.idProducto;
         document.getElementById("txtCodigoAccesorio").value = accesorio.idAccesorio;
-        document.getElementById("txtNumeroUnico").value = accesorio.numeroUnico;
+        
 
         mandarConfirmacionGuardar();
 
@@ -176,7 +174,7 @@ export function save()
     {
         accesorio.idProducto = parseInt(document.getElementById("txtCodigoProducto").value);
         accesorio.idAccesorio = parseInt(document.getElementById("txtCodigoAccesorio").value);
-        accesorio.numeroUnico = document.getElementById("txtNumeroUnico").value;
+        
 
         pos = buscarPosicionPorId(accesorio.idAccesorio);
 
